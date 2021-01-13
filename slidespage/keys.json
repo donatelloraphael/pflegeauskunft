@@ -1,0 +1,44 @@
+{
+  "#1": {
+    "type": "reqular",
+    "question": "1. The question is here",
+    "options": [
+      {
+        "title": "Some questions here",
+        "image_name": "que-option1-img.png",
+        "value": "the value",
+        "next": "#2"
+      }
+    ]
+  },
+  "#2": {
+    "type": "reqular",
+    "question": "2. The question is here 2",
+    "options": [
+      {
+        "title": "Some questions here 2.",
+        "image_name": "que-option2-img.png",
+        "value": "the value",
+        "next": "#3"
+      }
+    ]
+  },
+  "#3": {
+    "type": "form",
+    "question": "3. The question is here 2",
+    "image_name": null,
+    "inputs": [
+        {
+            "title": null,
+            "placeholder": null
+        }
+    ],
+    "buttons": [
+      {
+        "title": "Some questions here 2.",
+        "value": "the value",
+        "next": "#4"
+      }
+    ]
+  }
+}

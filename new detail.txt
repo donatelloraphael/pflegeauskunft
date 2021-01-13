@@ -1,0 +1,66 @@
+Could you do the following things?
+
+Could you make the style of this page: https://pflegeauskunft-bayern.de/pflegeauskunft24new look exactly like this page https://pflegeauskunft24.de/anbietervergleich-20181228ad_id22826ert598zad_cc8797802017ad_khttfahfh_nwgaasa_fdscdsowefwcv_pmad_gos1o1ad_dkvccad_devmodukklm_mediumsem_nodugmurceseasem8/ ?
+
+I mean really like 1:1, 99% the same? The proportions of the page should be the same, the amount of text in each line, the popups etc. It doesn’t have to be 100% equal, but 99%. I hope you know what I mean. Responsiveness (mobile/tablet/desktop) should all be the same. The whole functionality of the page also. Including (and most important of all) the form:
+
+- could you build a form that includes the following elements of my existing form? The “names” (e.g. “fuerwen”), “values” (e.g. “ selber”) and “IDs” (e.g. “option1-1”) of radio & text inputs? All the other mess, like “id="q42””, “onclick="javascript: window.location = ‘#4/‘;” can be left out.
+
+- All fieldsets in the form between “name: zeitpunktc” (‘option30’) and “name: zeitpunkte” (‘option47’) should be ignored and should not be included in the form
+
+- The following branches should be reflected:
+o Branch 1: ‘option1’ -> ‘option2’ (OPTION2-1 AND OPTION2-3 ARE THE TRIGGERS OF BRANCH 1) -> ‘option id=“q3”’ -> ‘option id=“q50”’ -> ‘option3’ -> ‘option4’ -> ‘option5’ -> ‘option6’ -> ‘option7’ -> ‘option8’ -> ‘option9’ -> ‘option10’ -> ‘option id=“q351” (here all branches come together again)’
+
+o Branch 2: ‘option1’ -> ‘option2’ (OPTION2-2 IS THE FIRST TRIGGER OF BRANCH 2) -> ‘option11’ (OPTION11-2 AND OPTION11-3 ARE THE SECOND TRIGGERS OF BRANCH 2) -> ‘option id=“q131”’ -> ‘option id=“q511”’ -> ‘option12’ -> ‘option13’ -> ‘option14’ -> ‘option15’ -> ‘option16’ -> ‘option17’ -> ‘option18’ -> ‘option19’ -> ‘option id=“q351” (here all branches come together again)’
+
+o Branch 3: ‘option1’ -> ‘option2’ (OPTION2-2 IS THE FIRST TRIGGER OF BRANCH 3) -> ‘option11’ (OPTION11-1 IS THE SECOND TRIGGER OF BRANCH 3) -> ‘option id=“q522”’ -> ‘option id=“q271”’ -> ‘option22’ -> ‘option23’ -> ‘option24’ -> ‘option25’ -> ‘option26’ -> ‘option27’ -> ‘option28’ -> ‘option29’ -> ‘option30’ -> ‘option id=“q351” (here all branches come together again)’
+
+- Could you also end the mess with the IDs and give the branches’ radio & text inputs consistent IDs? Branch 1 should be like this:
+
+o Branch 1:
+ Option 1 (radio) (question “Für wen suchen Sie eine 24 Stunden Pflege?”): Input1: id=“option1-1” , Input2: id=“option1-2”
+ Option 2 (radio) (question “Wie viele Personen leben im Haushalt?”): Input1: id=“option2-1” , Input2: id=“option2-2” , Input3: id=“option2-3”
+ Option 3 (text) (question “Um was für einen Angehörigen handelt es sich?”): Input1: id=“option3-1”
+ Option 4 (text) (question “Wie alt ist Ihr zu pflegender Angehöriger?”): Input1: id=“option4-1”
+ Option 5 (radio) (question “Ist ein Pflegegrad bereits vorhanden?”): Input1: id=“option5-1”, Input2: id=“option5-2”, Input3: id=“option5-3”, Input4: id=“option5-4”, Input5: id=“option5-5”
+ .. and so forth .. you know what I mean?
+
+o Branch 2 should be like:
+ Option 1 (radio) (question “Für wen suchen Sie eine 24 Stunden Pflege?”): Input1: id=“option1-1” , Input2: id=“option1-2”
+ Option 2 (radio) (question “Wie viele Personen leben im Haushalt?”): Input1: id=“option2-1” , Input2: id=“option2-2” , Input3: id=“option2-3”
+ Option 13 (radio) (question “Soll mehr als eine Person im Haushalt gepflegt werden?”): Input1: id=“option13-1” , Input2: id=“option13-2” , Input3: id=“option13-3”
+ Option 14 (text) (question “Um was für einen Angehörigen handelt es sich?”): Input14: id=“option14-1”
+ Option 15 (text) (question “Wie alt ist Ihr zu pflegender Angehöriger?”): Input1: id=“option15-1”
+ .. and so forth..
+
+o Branch 3 should be like:
+ Option 1 (radio) (question “Für wen suchen Sie eine 24 Stunden Pflege?”): Input1: id=“option1-1” , Input2: id=“option1-2”
+ Option 2 (radio) (question “Wie viele Personen leben im Haushalt?”): Input1: id=“option2-1” , Input2: id=“option2-2” , Input3: id=“option2-3”
+ Option 13 (radio) (question “Soll mehr als eine Person im Haushalt gepflegt werden?”): Input1: id=“option13-1” , Input2: id=“option13-2” , Input3: id=“option13-3”
+ Option 24 (text) (question “Wie alt ist Ihr erster pflegebedürftiger Angehöriger?”): Input1: id=“option24-1”
+ .. and so forth..
+
+The form and the landing page basically have to be ready in the end so that people can submit their form data via the form action. I'll be happy to answer any questions that you have.
+
+And one more thing actually... could you make sure that the progress bar that you built runs on the bottom, like on this page: https://www.kuechenportal.de/formular/
+Kind of like this: https://imgur.com/a/cRGLBTL
+And could you make sure that the progress bar runs to 100% for each of the three branches?
+
+please try to keep these points in mind when making the submit-mask
+
+https://imgur.com/X0J8T1s
+
+It's a bit messy, I hope everything becomes clear. If yo uhave questions, pls let me know
+
+
+It would also be great if you could replicate the responsiveness of the original landing page (https://pflegeauskunft24.de/anbietervergleich-20181228ad_id22826ert598zad_cc8797802017ad_khttfahfh_nwgaasa_fdscdsowefwcv_pmad_gos1o1ad_dkvccad_devmodukklm_mediumsem_nodugmurceseasem8/), including the form: https://youtu.be/2rh9ACgKUJw
+
+
+the final submit-fieldset basically should behave like the final submit-fieldset in the original landing page: https://pflegeauskunft24.de/anbietervergleich-20181228ad_id22826ert598zad_cc8797802017ad_khttfahfh_nwgaasa_fdscdsowefwcv_pmad_gos1o1ad_dkvccad_devmodukklm_mediumsem_nodugmurceseasem8/
+
+Basically, that's the form that you're supposed to replicate.. I explained the kinds of things that are important when building the form
+
+In the end, there's a final form-submit-fieldset/slide and the inputs require certain conditions: one of the radio boxes has to be checked (either "Herr" or "Frau"), the "Vorname" and "Nachname" must have at least two characters to enable submission, the email needs email format and the telephone field must accept only numbers and a "+" in the beginning (teephone-number format). Furthermore, when these conditions are either met or not met and the "submit"-button is pressed, the fields turn either green or red. All of this functionality is already in the submit-fieldset of the original landing page: https://pflegeauskunft24.de/anbietervergleich-20181228ad_id22826ert598zad_cc8797802017ad_khttfahfh_nwgaasa_fdscdsowefwcv_pmad_gos1o1ad_dkvccad_devmodukklm_mediumsem_nodugmurceseasem8/
+
+On a broader level, the task would be to replicate the original landing page (https://pflegeauskunft24.de/anbietervergleich-20181228ad_id22826ert598zad_cc8797802017ad_khttfahfh_nwgaasa_fdscdsowefwcv_pmad_gos1o1ad_dkvccad_devmodukklm_mediumsem_nodugmurceseasem8/) but including your slide effect, not mine
+

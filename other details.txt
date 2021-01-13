@@ -1,0 +1,58 @@
+Can you actually see though how https://pflegeauskunft-bayern.de/slidespage/ does not look like https://pflegeauskunft24.de/anbietervergleich-20181228ad_id22826ert598zad_cc8797802017ad_khttfahfh_nwgaasa_fdscdsowefwcv_pmad_gos1o1ad_dkvccad_devmodukklm_mediumsem_nodugmurceseasem8/
+ ?
+
+ Since it doesn't look like the original landing page, which is what I asked, can you make it look like it?
+Go ahead and go to any question with text input, press enter, and see how the entire form breaks
+
+Since you built the slider effect, you're the one who should build the form with it. However, I'm not sure you're willing to do good work on this project. Sorry, but in my opinion, the task was done sloppy. Also the desktop/tablet/mobile responsiveness wasn't respected at all which I mentioned specifically.
+
+I said specifically in the text: pls make responsiveness EXACTLY as in the original page (https://pflegeauskunft24.de/anbietervergleich-20181228ad_id22826ert598zad_cc8797802017ad_khttfahfh_nwgaasa_fdscdsowefwcv_pmad_gos1o1ad_dkvccad_devmodukklm_mediumsem_nodugmurceseasem8/
+).
+
+The branches aren't built into the form at all. At question "Wie viele Personen leben im Haushalt?", different branches should begin, which I specifically mentioned in the original description.... I was VERY, VERY specific about how the form should be in the original description
+
+this looks dirty, not like in the original landing page:
+https://imgur.com/a/R5K9sxk
+as a reference, here is what it looks like in the original page:
+https://imgur.com/a/2flJZi8
+
+
+this is how a selected question should look like: https://imgur.com/a/fX4p821
+
+not like this:
+https://imgur.com/a/Z3oUeeb
+
+Also, check the font size of things in general, it's not like in the original landing page.. the proportions of the page do not resemble the proportions of the original landing page
+
+this isn't supposed to be there: https://imgur.com/a/4Ubw1BM
+ Where is this in the original landing page? I asked to please make it almost look 100% like the original landing page... like REALLY, REALLY ALMOST the same. Can you do this? Make it look 99,9999999999999999999% like the original landing page? Because that's what I need. Everything else I canÄt work with.
+
+ Please check my description of the form in the original description: you didn't include the branches or anything. please check the html version of the original landing page: https://pflegeauskunft24.de/anbietervergleich-20181228ad_id22826ert598zad_cc8797802017ad_khttfahfh_nwgaasa_fdscdsowefwcv_pmad_gos1o1ad_dkvccad_devmodukklm_mediumsem_nodugmurceseasem8/
+ . You simply left out a bunch of stuff. You left out like 70% of the form.
+
+ check out this video: https://youtu.be/LHsudfWbbPI
+ . Can you actually see how responsiveness, behavior of the side, look and feel is all different?
+
+this is the original landing page:
+https://imgur.com/a/YOoWaLJ
+
+Your's doesn't look like it:
+https://imgur.com/a/KrRZxg6
+
+
+check out this glitch when I enter "enter"-button: https://youtu.be/xvnnjjHweUc
+
+My page:
+https://imgur.com/a/oeTFqvo
+
+your's:
+https://imgur.com/a/jWNPgAb
+
+looks very different
+I don't understand this:
+https://imgur.com/a/UIOpiIK
+
+
+this video and what is shown there cannot be replicated at all on your landing page. The "wait"-slide is missing and the rest of the slides do not look like my slides and also do not behave like my slides. It's just very, very different: https://youtu.be/qn5NCloay-Q
+
+These all points client sent my file based 
