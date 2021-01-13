@@ -38,6 +38,23 @@ body {
 
 /**************Body*****************/
 
+.cta-container {
+  width: 100% !important;
+  padding: 40px;
+  position: relative;
+}
+
+.form-wrapper {
+  width: 100%;
+  padding: 0 0 15px 0;
+}
+
+.form-wrapper-inner {
+  max-width: 965px;
+  margin: 0 auto;
+  box-shadow: 0 0 5px #aaa;
+}
+
 .body_section {
   background-color: #ffffff;
   border-top-left-radius: 5px;
@@ -640,10 +657,6 @@ img {
 
 
 /*******************MEDIA QUERYS**************************/
-@media (min-width: 1275px) {
-  .navbar-wrapper {
-  }
-}
 
 @media (max-width: 1024px) {
   .body_section {
@@ -659,6 +672,10 @@ img {
   .navbar-wrapper {
     padding: 5px 15px!important;
   }
+
+  .cta-container {
+    padding: 30px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -670,6 +687,10 @@ img {
     padding: 18px 0;
     position: relative;
     bottom: 5px;
+  }
+
+  .cta-container {
+    padding: 0;
   }
 
   .body_section2 {
@@ -697,9 +718,9 @@ img {
   .body_section {
     padding: 25px 50px 25px 50px;
     height: auto;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
+    box-shadow: 0px 0px 5px #aaa;
+    -webkit-box-shadow: 0px 0px 5px #aaa;
+    -moz-box-shadow: 0px 0px 5px #aaa;
   }
   .danke-text {
     max-width: 800px;
