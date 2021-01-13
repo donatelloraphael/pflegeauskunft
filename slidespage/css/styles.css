@@ -7,6 +7,9 @@ body {
   min-width: 334px;
 }
 
+*{
+ /*outline: 1px solid red !important;*/
+}
 /**************Nav Bar******************/
 
 .navbar {
@@ -160,8 +163,7 @@ body {
 }
 .form-panel {
   height: 225px;
-
-    background: #f2f2f2;
+  background: #f2f2f2;
 }
 
 .side-info {
@@ -642,13 +644,23 @@ img {
   height: 94px;
   padding: 20px 25px 40px 25px;
   box-shadow: 0 0 5px #aaa;
+  line-height: 1.4;
+}
+
+.pro-bullets {
   display: flex;
   justify-content: space-between;
+  max-width: 100%;
+}
+
+.pro-bullets div {
+  margin: 0 0 20px;
 }
 
 p.serv {
   color: grey;
   font-size: 13px;
+  padding-top: 5px;
 }
 
 .tt {
@@ -664,9 +676,10 @@ p.serv {
     text-align: center;
     color: #fff;
     position: absolute;
-    top: 70px;
     left: calc(50% - 92.3px);
     z-index: 1;
+    bottom: 88px !important;
+    box-sizing: border-box;
 }
 
 .tt .ttt .tiptext {
@@ -679,7 +692,6 @@ p.serv {
     letter-spacing: -0.3px;
     border-radius: 5px;
     padding: 5px 5px;
-    top: 47px !important;
     box-shadow: 0 4px 2px -2px rgb(203, 206, 212, 0.8);
     user-select: none;
     display: block;
@@ -694,14 +706,14 @@ p.serv {
     content: "";
     position: absolute;
     left: calc(47% - 0.35em);
-    bottom: calc(0 - 7px);
+    bottom: -10px;
+    transform: rotate(180deg);
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
     border-bottom: 10px solid rgb(221, 221, 221, 0.9);
     clear: both;
-    top: -9px;
 }
 /* End of style css for tooltip */
 
@@ -727,6 +739,25 @@ p.serv {
     padding: 48px 0 0 43px;
     background-size: contain;
     background-position: 137% 0;
+  }
+
+  .tooltip-container {
+    height: 110px;
+    padding: 20px 60px 40px 60px;
+  }
+
+  .pro-bullets {
+    width: 672px;
+    margin: 0 auto;
+  }
+
+  .tt .ttt {
+    width: 150px;
+    left: calc(50% - 75px);
+  }
+
+  .ttt::after {
+    left: calc(44% - 0.35em);
   }
 }
 
@@ -801,6 +832,11 @@ p.serv {
     padding:0 50px 15px 50px;
     font-family: "Open Sans";
     text-shadow: 0 -1px 13px #ef7f01;
+  }
+
+  .tooltip-container {
+    height: 110px;
+    padding: 20px 40px 40px 40px;
   }
 
   .danke-text {
@@ -892,6 +928,18 @@ p.serv {
 
 }
 
+@media(max-width: 685px) {
+  .tt.last-image {
+    display: none;
+  }
+}
+
+@media(max-width: 629px) {
+  .tt .ttt {
+    bottom: 106px !important;
+  }
+}
+
 @media (max-width: 493px) {
   .head1 {
     bottom: 3px;
@@ -900,7 +948,27 @@ p.serv {
     padding: 0 10px;
     bottom: 2px;
   }
+}
 
+@media(max-width: 540px) {
+  p.serv {
+    font-size: 11px;
+  }
+
+  .tt .ttt {
+    top: -20px!important;
+    width: 91px!important;
+    left: -7px!important;
+  }
+
+  .tt .ttt .tiptext {
+    font-size: 11px !important;
+    height: 110px !important;
+  }
+
+  .tt .ttt::after {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 480px) {
