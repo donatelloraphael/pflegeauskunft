@@ -4,7 +4,7 @@ body {
   color: #474747;
   letter-spacing: 1px;
   font: 13px/20px PTSansRegular,Arial,Helvetica,sans-serif;
-  min-width: 365px;
+  min-width: 334px;
 }
 
 /**************Nav Bar******************/
@@ -48,6 +48,7 @@ body {
   width: 100% !important;
   padding: 40px;
   position: relative;
+  min-width: 334px !important;
 }
 
 .form-wrapper {
@@ -169,17 +170,21 @@ body {
   border-bottom-left-radius: 4px;
   /* background-color: ; */
   font-size: 16px;
-  padding: 7px 10px;
+  padding: 18px 8px;
   position: absolute;
-  height: 68px;
+  height: 85px;
   right: 0;
-  top: 95px;
-  width: 220px;
+  top: 112px;
+  width: 205px;
   background-image: linear-gradient(
     to right,
     rgb(135, 225, 243, 0.55),
     rgb(135, 225, 243, 0.55)
   );
+  font-family: "Open Sans";
+  line-height: 1.5;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
 }
 .participant-wrapper {
     background: #f2f2f2;
@@ -485,7 +490,7 @@ img {
     font-weight: bold;
 }
 .image-checkmark {
-  width: 31px;
+  width: 30px;
   height: 24px;
   display: inline-block;
 }
@@ -625,7 +630,27 @@ img {
 
 /* End of progress bar CSS */
 
-/* Start of style css for tooltip */
+/*************** Start of style css for tooltip **************/
+.tooltip-container {
+  max-width: 965px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0;
+  border-radius: 5px;
+  background-color: #fff;
+  height: 94px;
+  padding: 20px 25px 40px 25px;
+  box-shadow: 0 0 5px #aaa;
+  display: flex;
+  justify-content: space-between;
+}
+
+p.serv {
+  color: grey;
+  font-size: 13px;
+}
+
 .tt {
   position: relative;
   display: inline-block;
@@ -736,6 +761,14 @@ img {
     max-height: 212px;
   }
 
+  .body_section2 {
+    border-radius: 0;
+  }
+
+  .form-wrapper-inner {
+    border-radius: 0;
+  }
+
   .head1 {
     text-shadow: 0 -1px 13px #ef7f01;
     font-size: 26px;
@@ -763,7 +796,6 @@ img {
   }
 
   .head2 {
-    font-size: 16px;
     font-weight: 400;
     font-size: 17px!important;
     padding:0 50px 15px 50px;
@@ -810,11 +842,6 @@ img {
     left: calc(60% - 3.8em);
   }
 
-  .section_arrow {
-    height: 16px !important;
-    width: 
-  }
-
   .question-title {
     bottom: 6px;
   }
@@ -849,11 +876,29 @@ img {
   .legal-check-two{
    display: none;
   }
+
+  /*******************/
+
+
+  .tooltip-container {
+    border-radius: 0;
+  }
 }
 
 @media(max-width: 865px) {
   .question-title {
     font-size: 24px;
+  }
+
+}
+
+@media (max-width: 493px) {
+  .head1 {
+    bottom: 3px;
+  }
+  .head2 {
+    padding: 0 10px;
+    bottom: 2px;
   }
 
 }
@@ -874,13 +919,11 @@ img {
   .body_section {
     padding: 10px;
   }
-  .head1,
-  .head2 {
-    font-size: 7vw;
-  }
 
   .question-title {
     font-size: 19px;
+    bottom: 3px;
+    line-height: 1.5;
   }
 
   .section_items {
@@ -900,6 +943,11 @@ img {
   }
   .ht-5 .section_items {
       width: 120px;
+  }
+
+  .head2 {
+    padding:0 10px;
+    line-height: 1;
   }
 }
 
@@ -922,33 +970,33 @@ img {
     height: 150px;
     margin-bottom: 10px;
   }
-input#first-name {
-    width: 276px;
-    margin-bottom: 5px;
-}
-input#last-name {
- width: 276px;
-}
+  input#first-name {
+      width: 276px;
+      margin-bottom: 5px;
+  }
+  input#last-name {
+   width: 276px;
+  }
 
-input#email {
-   width: 100%;
-}
-input#phone{
-   width: 100%;
-}
-#form-submit-button {
-    width: 100%;
-}
-.participant-wrapper {
-    padding: 8px 17px;
-}
-.advantage-box{
-  height: 139px;
-}
-.size18 {
-    font-size: 15px;
-    margin-top:5px;
-}
+  input#email {
+     width: 100%;
+  }
+  input#phone{
+     width: 100%;
+  }
+  #form-submit-button {
+      width: 100%;
+  }
+  .participant-wrapper {
+      padding: 8px 17px;
+  }
+  .advantage-box{
+    height: 139px;
+  }
+  .size18 {
+      font-size: 15px;
+      margin-top:5px;
+  }
 }
 
 
