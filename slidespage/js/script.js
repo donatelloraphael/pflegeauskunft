@@ -1012,136 +1012,167 @@ let queObj = {
       },
     ]
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  11:
-   {
+  27:
+  {
+    type: "regular",
+    question: "Welche Deutschkenntnisse soll Ihre Pflegekraft haben?",
+    name: "sprachec",
+    options: [
+      {
+        title: "Grundkenntnisse",
+        image_name: "q4_1.png",
+        name: "sprachec",
+        value: "Grundkenntnisse",
+        id: "option27-1",
+        next: "28",
+      },
+      {
+        title: "Mittlere Kenntnisse",
+        image_name: "q4_2.png",
+        name: "sprachec",
+        value: "mittlere Kenntnisse",
+        id: "option27-2",
+        next: "28",
+      },
+      {
+        title: "Gute Kenntnisse",
+        image_name: "q4_3.png",
+        name: "sprachec",
+        value: "gute Kenntnisse",
+        id: "option27-3",
+        next: "28",
+      },
+      {
+        title: "Noch unklar",
+        image_name: "q4_4.png",
+        name: "sprachec",
+        value: "noch unklar",
+        id: "option27-4",
+        next: "28",
+      },
+    ]
+  },
+  28:
+  {
+    type: "regular",
+    question: "Gibt es eine Möglichkeit zur Unterbringung der Pflegekraft?",
+    name: "unterbringungc",
+    options: [
+      {
+        title: "Gästezimmer",
+        image_name: "q_bett.png",
+        name: "unterbringungc",
+        value: "Gästezimmer vorhanden",
+        id: "option28-1",
+        next: "29",
+      },
+      {
+        title: "Wohnung",
+        image_name: "q7_2.png",
+        name: "unterbringungc",
+        value: "Wohnung vorhanden",
+        id: "option28-2",
+        next: "29",
+      },
+      {
+        title: "Nein",
+        image_name: "q_x.png",
+        name: "unterbringungc",
+        value: "nein",
+        id: "option28-3",
+        next: "29",
+      },
+    ]
+  },
+  29:
+  {
     type: "regular",
     question: "Wie lange benötigen Sie die Betreuung?",
+    name: "dauerc",
     options: [
       {
         title: "4-6 Wochen",
         image_name: "q5_2.png",
+        name: "dauerc",
         value: "4-6 Wochen",
-        next: "12",
+        id: "option29-1",
+        next: "30",
       },
       {
         title: "Länger als 6 Wochen",
         image_name: "q5_1.png",
-        value: "Länger als 6 Wochen",
-        next: "12",
+        name: "dauerc",
+        value: "länger als 6 Wochen",
+        id: "option29-2",
+        next: "30",
       },
-      
-     {
+      {
         title: "Weniger als 4 Wochen",
-        image_name: "q5_2.png",
-        value: "Weniger als 4 Wochen",
-        next: "12",
+        image_name: "q8_1.png",
+        name: "dauerc",
+        value: "weniger als 4 Wochen",
+        id: "option29-3",
+        next: "30",
       },
-    ],
-    next: "12",
-    /*finish: true,*/
+    ]
   },
-  12:
-   {
+  30:
+  {
     type: "regular",
     question: "Wann soll die Betreuung beginnen?",
+    name: "zeitpunktc",
     options: [
       {
         title: "Schnellstmöglich",
         image_name: "q5_1.png",
-        value: "Schnellstmöglich",
-        next: "13",
+        name: "zeitpunktc",
+        value: "schnellstmöglich",
+        id: "option30-1",
+        next: "q351",
       },
       {
         title: "In 2-3 Wochen",
         image_name: "q5_2.png",
-        value: "In 2-3 Wochen",
-        next: "13",
+        name: "zeitpunktc",
+        value: "in 2-3 Wochen",
+        id: "option30-2",
+        next: "q351",
       },
-      
-     {
+      {
         title: "In 1-2 Monaten",
         image_name: "q5_3.png",
-        value: "In 1-2 Monaten",
-        next: "13",
+        name: "zeitpunktc",
+        value: "in 1-2 Monaten",
+        id: "option30-3",
+        next: "q351",
       },
-       {
+      {
         title: "Später/Noch unklar",
         image_name: "q5_4.png",
-        value: "Später/Noch unklar",
-        next: "13",
+        name: "zeitpunktc",
+        value: "später/noch unklar",
+        id: "option30-4",
+        next: "q351",
       },
-      
-    ],
-    next: "13",
-    //finish: true,
+    ]
   },
-    13: {
+  q351: {
     type: "form",
     question: "In welcher Region suchen Sie die 24 Stunden Pflege?",
+    name: "postcode",
     inputs: [
       {
         title: "Postleitzahl oder Wohnort:",
         image_name: "map_deutschland.gif",
         value: "",
-        next: "14",
+        name: "postcode",
+        id: "q351",
+        next: "loading",
       },
       
     ],
-    next: "14",
   },
-  14:
-   {
-    type: "regular",
-    question: "Wann soll die Betreuung beginnen?",
-    options: [
-      {
-        title: "Schnellstmöglich",
-        image_name: "q5_1.png",
-        value: "Schnellstmöglich",
-        next: "15",
-      },
-      {
-        title: "In 2-3 Wochen",
-        image_name: "q5_2.png",
-        value: "In 2-3 Wochen",
-        next: "15",
-      },
-      
-     {
-        title: "In 1-2 Monaten",
-        image_name: "q5_3.png",
-        value: "In 1-2 Monaten",
-        next: "15",
-      },
-       {
-        title: "Später/Noch unklar",
-        image_name: "q5_4.png",
-        value: "Später/Noch unklar",
-        next: "15",
-      },
-    ],
-    next: "15",
-    //finish: true,
-  },
-   15: {
+  finish: {
     type: "wrapper",
     question: "Nur noch ein Schritt zu Ihrem Anbietervergleich",
     colms: [
@@ -1150,31 +1181,10 @@ let queObj = {
         r2: "Herr",
         title: "Wer soll die Betreuungsangebote erhalten?",
         value: "",
-        next: "14",
-      },
-     
-      
+        next: "",
+      },      
     ],
-    next: "14",
   },
-  /* 8: {
-    type: "form",
-    question: "Field set 8",
-    image_name: "q1_21.png",
-    inputs: [
-      {
-        title: "Title for the input",
-        placeholder: null,
-      },
-    ],
-    buttons: [
-      {
-        value: "the value",
-        next: "9",
-      },
-    ],
-    finish: true,
-  }, */
 };
 
 let slideR = true;
