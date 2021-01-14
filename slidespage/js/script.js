@@ -796,6 +796,223 @@ let queObj = {
       },
     ]
   },
+  22:
+  {
+    type: "regular",
+    question: "Hat Ihr erster Angehöriger bereits einen Pflegegrad?",
+    name: "pflegegradca",
+    options: [
+      {
+        title: "Pflegegrad 1-2",
+        image_name: "q2_11.png",
+        name: "pflegegradca",
+        value: "2",
+        id: "option22-1",
+        next: "23",
+      },
+      {
+        title: "Pflegegrad 3",
+        image_name: "q2_21.png",
+        name: "pflegegradca",
+        value: "3",
+        id: "option22-2",
+        next: "23",
+      },
+      {
+        title: "Pflegegrad 4",
+        image_name: "q2_31.png",
+        name: "pflegegradca",
+        value: "4",
+        id: "option22-3",
+        next: "23",
+      },
+      {
+        title: "Pflegegrad 5",
+        image_name: "q2_41.png",
+        name: "pflegegradca",
+        value: "5",
+        id: "option22-4",
+        next: "23",
+      },
+      {
+        title: "Beantragt/Unklar",
+        image_name: "q_questionmarck.png",
+        name: "pflegegradca",
+        value: "beantragt/noch unklar",
+        id: "option22-5",
+        next: "23",
+      },
+    ]
+  },
+  23:
+  {
+    type: "regular",
+    question: "Hat Ihr zweiter Angehöriger bereits einen Pflegegrad?",
+    name: "pflegegradcb",
+    options: [
+      {
+        title: "Pflegegrad 1-2",
+        image_name: "q2_11.png",
+        name: "pflegegradcb",
+        value: "2",
+        id: "option23-1",
+        next: "24",
+      },
+      {
+        title: "Pflegegrad 3",
+        image_name: "q2_21.png",
+        name: "pflegegradcb",
+        value: "3",
+        id: "option23-2",
+        next: "24",
+      },
+      {
+        title: "Pflegegrad 4",
+        image_name: "q2_31.png",
+        name: "pflegegradcb",
+        value: "4",
+        id: "option23-3",
+        next: "24",
+      },
+      {
+        title: "Pflegegrad 5",
+        image_name: "q2_41.png",
+        name: "pflegegradcb",
+        value: "5",
+        id: "option23-4",
+        next: "24",
+      },
+      {
+        title: "Beantragt/Unklar",
+        image_name: "q_questionmarck.png",
+        name: "pflegegradcb",
+        value: "beantragt/noch unklar",
+        id: "option23-5",
+        next: "24",
+      },
+    ]
+  },
+  24:
+  {
+    type: "regular",
+    question: "Ist Ihr erster pflegebedürftiger Angehöriger dement?",
+    name: "demenzca",
+    options: [
+      {
+        title: "Nein",
+        image_name: "q_x.png",
+        name: "demenzca",
+        value: "nein",
+        id: "option24-1",
+        next: "25",
+      },
+      {
+        title: "Ja",
+        image_name: "q_check.png",
+        name: "demenzca",
+        value: "ja",
+        id: "option24-2",
+        next: "25",
+      },
+      {
+        title: "Ja, leichte Demenz",
+        image_name: "q_check_klein.png",
+        name: "demenzca",
+        value: "ja, leichte Demenz",
+        id: "option24-3",
+        next: "25",
+      },
+      {
+        title: "Unklar",
+        image_name: "q_questionmarck.png",
+        name: "demenzca",
+        value: "noch unklar",
+        id: "option24-4",
+        next: "25",
+      },
+    ]
+  },
+  25:
+  {
+    type: "regular",
+    question: "Ist Ihr zweiter pflegebedürftiger Angehöriger dement?",
+    name: "demenzcb",
+    options: [
+      {
+        title: "Nein",
+        image_name: "q_x.png",
+        name: "demenzcb",
+        value: "nein",
+        id: "option25-1",
+        next: "26",
+      },
+      {
+        title: "Ja",
+        image_name: "q_check.png",
+        name: "demenzcb",
+        value: "ja",
+        id: "option25-2",
+        next: "26",
+      },
+      {
+        title: "Ja, leichte Demenz",
+        image_name: "q_check_klein.png",
+        name: "demenzcb",
+        value: "ja, leichte Demenz",
+        id: "option25-3",
+        next: "26",
+      },
+      {
+        title: "Unklar",
+        image_name: "q_questionmarck.png",
+        name: "demenzcb",
+        value: "noch unklar",
+        id: "option25-4",
+        next: "26",
+      },
+    ]
+  },
+  26:
+  {
+    type: "regular",
+    question: "Wird eine nächtliche Betreuung benötigt?",
+    name: "nachtc",
+    options: [
+      {
+        title: "Nein",
+        image_name: "q_x.png",
+        name: "nachtc",
+        value: "nein",
+        id: "option26-1",
+        next: "27",
+      },
+      {
+        title: "Ja, regelmäßig",
+        image_name: "q_check.png",
+        name: "nachtc",
+        value: "ja, regelmäßig",
+        id: "option26-2",
+        next: "27",
+      },
+      {
+        title: "Ja, gelegentlich",
+        image_name: "q_check_klein.png",
+        name: "nachtc",
+        value: "ja, gelegentlich",
+        id: "option26-3",
+        next: "27",
+      },
+      {
+        title: "Noch unklar",
+        image_name: "q_questionmarck.png",
+        name: "nachtc",
+        value: "noch unklar",
+        id: "option26-4",
+        next: "27",
+      },
+    ]
+  },
+
 
 
 
