@@ -692,6 +692,110 @@ let queObj = {
       },
     ]
   },
+  17:
+  {
+    type: "regular",
+    question: "Gibt es eine Möglichkeit zur Unterbringung der Pflegekraft?",
+    name: "unterbringungb",
+    options: [
+      {
+        title: "Gästezimmer",
+        image_name: "q_bett.png",
+        name: "unterbringungb",
+        value: "Gästezimmer vorhanden",
+        id: "option17-1",
+        next: "18",
+      },
+      {
+        title: "Wohnung",
+        image_name: "q7_2.png",
+        name: "unterbringungb",
+        value: "Wohnung vorhanden",
+        id: "option17-2",
+        next: "18",
+      },
+      {
+        title: "Nein",
+        image_name: "q_x.png",
+        name: "unterbringungb",
+        value: "nein",
+        id: "option17-3",
+        next: "18",
+      },
+    ]
+  },
+  18:
+  {
+    type: "regular",
+    question: "Wie lange benötigen Sie die Betreuung?",
+    name: "dauerb",
+    options: [
+      {
+        title: "4-6 Wochen",
+        image_name: "q5_2.png",
+        name: "dauerb",
+        value: "4-6 Wochen",
+        id: "option18-1",
+        next: "19",
+      },
+      {
+        title: "Länger als 6 Wochen",
+        image_name: "q5_1.png",
+        name: "dauerb",
+        value: "länger als 6 Wochen",
+        id: "option18-2",
+        next: "19",
+      },
+      {
+        title: "Weniger als 4 Wochen",
+        image_name: "q8_1.png",
+        name: "dauerb",
+        value: "weniger als 4 Wochen",
+        id: "option18-3",
+        next: "19",
+      },
+    ]
+  },
+  19:
+  {
+    type: "regular",
+    question: "Wann soll die Betreuung beginnen?",
+    name: "zeitpunktb",
+    options: [
+      {
+        title: "Schnellstmöglich",
+        image_name: "q5_1.png",
+        name: "zeitpunktb",
+        value: "schnellstmöglich",
+        id: "option19-1",
+        next: "q351",
+      },
+      {
+        title: "In 2-3 Wochen",
+        image_name: "q5_2.png",
+        name: "zeitpunktb",
+        value: "in 2-3 Wochen",
+        id: "option19-2",
+        next: "q351",
+      },
+      {
+        title: "In 1-2 Monaten",
+        image_name: "q5_3.png",
+        name: "zeitpunktb",
+        value: "in 1-2 Monaten",
+        id: "option19-3",
+        next: "q351",
+      },
+      {
+        title: "Später/Noch unklar",
+        image_name: "q5_4.png",
+        name: "zeitpunktb",
+        value: "später/noch unklar",
+        id: "option19-4",
+        next: "q351",
+      },
+    ]
+  },
 
 
 
