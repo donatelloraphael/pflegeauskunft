@@ -621,10 +621,12 @@ img {
     border-radius: 16px;
     margin-bottom: -52px;
     height: 6px;
+    position: relative;
+    bottom: 2px;
 }
 .progress {
   background-color: #ff8f0d;
-  height: 22%;
+  height: 50%;
   width: 0;
   min-width: 10%;
   transition: width 0.2s linear;
@@ -985,7 +987,7 @@ p.serv {
   }
 
   .body_section {
-    padding: 10px;
+    padding: 10px 9px 14px;
   }
 
   .question-title {

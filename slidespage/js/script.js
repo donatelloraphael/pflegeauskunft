@@ -4,7 +4,7 @@ let queObj = {
     question: "Für wen suchen Sie eine 24 Stunden Pflege?",
     options: [
       {
-        title: "Mich selbst",
+        title: "Mich selbstDF",
         image_name: "q1_1.png",
         value: "Mich selbst",
         next: "2",
