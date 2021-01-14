@@ -53,7 +53,7 @@ let queObj = {
       },
     ],
   },
-  "q3": {
+  q3: {
     type: "form",
     question: "Um was für einen Angehörigen handelt es sich?",
     name: "angehoeriger",
@@ -68,7 +68,7 @@ let queObj = {
       },
     ],
   },
-  "q50": {
+  q50: {
     type: "form",
     question: "Wie alt ist Ihr zu pflegender Angehöriger?",
     name: "alterperson",
@@ -319,64 +319,236 @@ let queObj = {
   },
   9:  {
     type: "regular",
-    question: "Welche Deutschkenntnisse soll Ihre Pflegekraft haben?",
+    question: "Wie lange benötigen Sie die Betreuung?",
+    name: "dauer",
     options: [
       {
-        title: "Grundkenntnisse",
-        image_name: "q4_1.png",
-        value: "Grundkenntnisse",
+        title: "4-6 Wochen",
+        image_name: "q5_2.png",
+        value: "4-6 Wochen",
+        id: "option9-1",
+        name: "dauer",
         next: "10",
       },
       {
-        title: "Mittlere Kenntnisse",
-        image_name: "q4_2.png",
-        value: "Mittlere Kenntnisse",
+        title: "Länger als 6 Wochen",
+        image_name: "q5_1.png",
+        value: "länger als 6 Wochen",
+        id: "option9-2",
+        name: "dauer",
         next: "10",
       },
       {
-        title: "Gute Kenntnisse",
-        image_name: "q4_3.png",
-        value: "Gute Kenntnisse",
-        next: "10",
-      },
-     {
-        title: "Noch unklar",
-        image_name: "q4_4.png",
-        value: "Noch unklar",
+        title: "Weniger als 4 Wochen",
+        image_name: "q8_1.png",
+        value: "weniger als 4 Wochen",
+        id: "option9-3",
+        name: "dauer",
         next: "10",
       },
     ],
-    next: "10",
-    //finish: true,
   },
   10:
    {
     type: "regular",
-    question: "Gibt es eine Möglichkeit zur Unterbringung der Pflegekraft?",
+    question: "Wann soll die Betreuung beginnen?",
+    name: "zeitpunkt",
     options: [
       {
-        title: "Gästezimmer",
-        image_name: "q_bett.png",
-        value: "Gästezimmer",
-        next: "11",
+        title: "Schnellstmöglich",
+        image_name: "q5_1.png",
+        value: "schnellstmöglich",
+        name: "zeitpunkt",
+        id: "option10-1",
+        next: "q351",
       },
       {
-        title: "Wohnung",
-        image_name: "q7_2.png",
-        value: "Wohnung",
-        next: "11",
+        title: "In 2-3 Wochen",
+        image_name: "q5_2.png",
+        name: "zeitpunkt",
+        value: "in 2-3 Wochen",
+        id: "option10-2",
+        next: "q351",
       },
-      
-     {
-        title: "Nein",
-        image_name: "q_x.png",
-        value: "Nein",
-        next: "11",
+      {
+        title: "In 1-2 Monaten",
+        image_name: "q5_3.png",
+        name: "zeitpunkt",
+        value: "in 1-2 Monaten",
+        id: "option10-3",
+        next: "q351",
+      },
+      {
+        title: "Später/Noch unklar",
+        image_name: "q5_4.png",
+        name: "zeitpunkt",
+        value: "später/noch unklar",
+        id: "option10-4",
+        next: "q351",
       },
     ],
-    next: "11",
-    /*finish: true,*/
   },
+  11:
+  {
+    type: "regular",
+    question: "Soll mehr als eine Person im Haushalt gepflegt werden?",
+    name: "betreuungspersonen",
+    options: [
+      {
+        title: "Ja",
+        image_name: "q_check.png",
+        name: "betreuungspersonen",
+        value: "zwei Personen",
+        id: "option11-1",
+        next: "q522",
+      },
+      {
+        title: "Nein",
+        image_name: "q_x.png",
+        name: "betreuungspersonen",
+        value: "eine Person",
+        id: "option11-2",
+        next: "q131",
+      },
+      {
+        title: "Noch unklar",
+        image_name: "q_questionmarck.png",
+        name: "betreuungspersonen",
+        value: "noch unklar",
+        id: "option11-3",
+        next: "q131",
+      },
+    ]
+  },
+  q131:
+  {
+    type: "form",
+    question: "Um was für einen Angehörigen handelt es sich?",
+    name: "angehoerigerb",
+    inputs: [
+      {
+        title: "z.B. Verwandtschaftsverhältnis:",
+        image_name: "zu-pflegende.png",
+        name: "angehoerigerb",
+        value: "",
+        id: "q131",
+        next: "q511",
+      }
+    ]
+  },
+  q511:
+  {
+    type: "form",
+    question: "Wie alt ist Ihr zu pflegender Angehöriger?",
+    name: "alterpersonb",
+    inputs: [
+      {
+        title: "Alter oder Geburtsdatum:",
+        image_name: "zu-pflegende.png",
+        name: "alterpersonb",
+        value: "",
+        id: "q511",
+        next: "12",
+      }
+    ]
+  },
+  q522:
+  {
+    type: "form",
+    question: "Wie alt ist Ihr erster pflegebedürftiger Angehöriger?",
+    name: "alterpersonca",
+    inputs: [
+      {
+        title: "Alter oder Geburtsdatum:",
+        image_name: "zu-pflegende.png",
+        name: "alterpersonca",
+        value: "",
+        id: "q522",
+        next: "q271",
+      }
+    ]
+  },
+  q271:
+  {
+    type: "form",
+    question: "Wie alt ist Ihr zweiter pflegebedürftiger Angehöriger?",
+    name: "alterpersoncb",
+    inputs: [
+      {
+        title: "Alter oder Geburtsdatum:",
+        image_name: "zu-pflegende.png",
+        name: "alterpersoncb",
+        value: "",
+        id: "q271",
+        next: "22",
+      }
+    ]
+  },
+  12:
+  {
+    type: "regular",
+    question: "Ist ein Pflegegrad bereits vorhanden?",
+    name: "pflegegradb",
+    options: [
+      {
+        title: "Pflegegrad 1-2",
+        image_name: "q2_11.png",
+        name: "pflegegradb",
+        value: "2",
+        id: "option12-1",
+        next: "13",
+      },
+      {
+        title: "Pflegegrad 3",
+        image_name: "q2_21.png",
+        name: "pflegegradb",
+        value: "3",
+        id: "option12-2",
+        next: "13",
+      },
+      {
+        title: "Pflegegrad 4",
+        image_name: "q2_31.png",
+        name: "pflegegradb",
+        value: "4",
+        id: "option12-3",
+        next: "13",
+      },
+      {
+        title: "Pflegegrad 5",
+        image_name: "q2_41.png",
+        name: "pflegegradb",
+        value: "5",
+        id: "option12-4",
+        next: "13",
+      },
+      {
+        title: "Beantragt/Unklar",
+        image_name: "q_questionmarck.png",
+        name: "pflegegradb",
+        value: "beantragt/noch unklar",
+        id: "option12-5",
+        next: "13",
+      },
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   11:
    {
     type: "regular",
