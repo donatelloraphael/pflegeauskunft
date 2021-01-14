@@ -532,6 +532,166 @@ let queObj = {
       },
     ]
   },
+  13:
+  {
+    type: "regular",
+    question: "Wie mobil ist die pflegebedürftige Person?",
+    name: "mobilitaetb",
+    options: [
+      {
+        title: "Uneingeschränkt",
+        image_name: "q3_1.png",
+        name: "mobilitaetb",
+        value: "keine Einschränkung",
+        id: "option13-1",
+        next: "14",
+      },
+      {
+        title: "Leichte Einschränkung",
+        image_name: "q3_2.png",
+        name: "mobilitaetb",
+        value: "leichte Einschränkung",
+        id: "option13-2",
+        next: "14",
+      },
+      {
+        title: "Rollstuhl erforderlich",
+        image_name: "q3_3.png",
+        name: "mobilitaetb",
+        value: "Rollstuhl erforderlich",
+        id: "option13-3",
+        next: "14",
+      },
+      {
+        title: "Bettlägerig",
+        image_name: "q_bett.png",
+        name: "mobilitaetb",
+        value: "bettlägerig",
+        id: "option13-4",
+        next: "14",
+      },
+    ]
+  },
+  14:
+  {
+    type: "regular",
+    question: "Ist die pflegebedürftige Person dement?",
+    name: "demenzb",
+    options: [
+      {
+        title: "Nein",
+        image_name: "q_x.png",
+        name: "demenzb",
+        value: "nein",
+        id: "option14-1",
+        next: "15",
+      },
+      {
+        title: "Ja",
+        image_name: "q_check.png",
+        name: "demenzb",
+        value: "ja",
+        id: "option14-2",
+        next: "15",
+      },
+      {
+        title: "Ja, leichte Demenz",
+        image_name: "q_check_klein.png",
+        name: "demenzb",
+        value: "ja, leichte Demenz",
+        id: "option14-3",
+        next: "15",
+      },
+      {
+        title: "Unklar",
+        image_name: "q_questionmarck.png",
+        name: "demenzb",
+        value: "noch unklar",
+        id: "option14-4",
+        next: "15",
+      },
+    ]
+  },
+  15:
+  {
+    type: "regular",
+    question: "Wird eine nächtliche Betreuung benötigt?",
+    name: "nachtb",
+    options: [
+      {
+        title: "Nein",
+        image_name: "q_x.png",
+        name: "nachtb",
+        value: "nein",
+        id: "option15-1",
+        next: "16",
+      },
+      {
+        title: "Ja, regelmäßig",
+        image_name: "q_check.png",
+        name: "nachtb",
+        value: "ja, regelmäßig",
+        id: "option15-2",
+        next: "16",
+      },
+      {
+        title: "Ja, gelegentlich",
+        image_name: "q_check_klein.png",
+        name: "nachtb",
+        value: "ja, gelegentlich",
+        id: "option15-3",
+        next: "16",
+      },
+      {
+        title: "Noch unklar",
+        image_name: "q_questionmarck.png",
+        name: "nachtb",
+        value: "noch unklar",
+        id: "option15-4",
+        next: "16",
+      },
+    ]
+  },
+  16:
+  {
+    type: "regular",
+    question: "Welche Deutschkenntnisse soll Ihre Pflegekraft haben?",
+    name: "spracheb",
+    options: [
+      {
+        title: "Grundkenntnisse",
+        image_name: "q4_1.png",
+        name: "spracheb",
+        value: "Grundkenntnisse",
+        id: "option16-1",
+        next: "17",
+      },
+      {
+        title: "Mittlere Kenntnisse",
+        image_name: "q4_2.png",
+        name: "spracheb",
+        value: "mittlere Kenntnisse",
+        id: "option16-2",
+        next: "17",
+      },
+      {
+        title: "Gute Kenntnisse",
+        image_name: "q4_3.png",
+        name: "spracheb",
+        value: "gute Kenntnisse",
+        id: "option16-3",
+        next: "17",
+      },
+      {
+        title: "Noch unklar",
+        image_name: "q4_4.png",
+        name: "spracheb",
+        value: "noch unklar",
+        id: "option16-4",
+        next: "17",
+      },
+    ]
+  },
 
 
 
