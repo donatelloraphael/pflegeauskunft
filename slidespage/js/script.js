@@ -4,21 +4,20 @@ let queObj = {
     question: "Für wen suchen Sie eine 24 Stunden Pflege?",
     options: [
       {
-        title: "Mich selbstDF",
+        title: "Mich selbst",
         image_name: "q1_1.png",
         value: "Mich selbst",
+        id: "option1-1",
         next: "2",
       },
       {
         title: "Angehörigen",
-        image_name: "q1_1.png",
+        image_name: "q1_2.png",
         value: "Angehörigen",
+        id: "option1-2",
         next: "2",
-      },
-     
-      
+      },      
     ],
-    next: "2",
   },
   2: {
     type: "regular",
@@ -26,26 +25,28 @@ let queObj = {
     options: [
       {
         title: "Eine Person",
-        image_name: "q1_1.png",
+        image_name: "q14_2.png",
         value: "Eine Person",
-        next: "3",
+        id: "option2-1",
+        next: "q3",
       },
       {
         title: "Mehrere Personen",
         image_name: "q1_1.png",
         value: "Mehrere Personen",
-        next: "3",
+        id: "option2-2",
+        next: "11",
       },
       {
         title: "Noch unklar",
         image_name: "q_questionmarck.png",
         value: "Noch unklar",
-        next: "3",
+        id: "option2-3",
+        next: "q3",
       },
     ],
-    next: "3",
   },
-  3: {
+  "q3": {
     type: "form",
     question: "Um was für einen Angehörigen handelt es sich?",
     inputs: [
@@ -53,12 +54,12 @@ let queObj = {
         title: "z.B. Verwandtschaftsverhältnis:",
         image_name: "zu-pflegende.png",
         value: "",
-        next: "4",
+        id: "q3",
+        next: "q50",
       },
     ],
-    next: "4",
   },
-  4: {
+  "q50": {
     type: "form",
     question: "Wie alt ist Ihr zu pflegender Angehöriger?",
     inputs: [
@@ -66,11 +67,78 @@ let queObj = {
         title: "Alter oder Geburtsdatum:",
         image_name: "zu-pflegende.png",
         value: "",
+        id: "q50",
+        next: "3",
+      }
+    ]
+  },
+  3: {
+    type: "regular",
+    question: "Ist ein Pflegegrad bereits vorhanden?",
+    options: [
+      {
+        title: "Pflegegrad 1-2",
+        image_name: "q2_11.png",
+        value:  "Pflegegrad 1-2",
+        id: "option3-1",
+        next: "4",
+      },
+      {
+        title: "Pflegegrad 3",
+        image_name: "q2_21.png",
+        value:  "Pflegegrad 3",
+        id: "option3-2",
+        next: "4",
+      },
+      {
+        title: "Pflegegrad 4",
+        image_name: "q2_31.png",
+        value:  "Pflegegrad 4",
+        id: "option3-3",
+        next: "4",
+      },
+      {
+        title: "Pflegegrad 5",
+        image_name: "q2_41.png",
+        value:  "Pflegegrad 5",
+        id: "option3-4",
+        next: "4",
+      }
+    ],
+  },
+  4: {
+    type: "regular",
+    question: "Wie mobil ist die pflegebedürftige Person?",
+    options: [
+      {
+        title: "Uneingeschränkt",
+        image_name: "q3_1.png",
+        value: "Uneingeschränkt",
+        id: "option4-1",
         next: "5",
       },
-      
-    ],
-    next: "5",
+      {
+        title: "Einschränkung",
+        image_name: "q3_2.png",
+        value: "Einschränkung",
+        id: "option4-2",
+        next: "5",
+      },
+      {
+        title: "Rollstuhl erforderlich",
+        image_name: "q3_3.png",
+        value: "Rollstuhl erforderlich",
+        id: "option4-3",
+        next: "5",
+      },
+      {
+        title: "Bettlägerig",
+        image_name: "q_bett.png",
+        value: "Bettlägerig",
+        id: "option4-4",
+        next: "5",
+      },
+    ]
   },
   5: {
     type: "regular",
@@ -146,7 +214,7 @@ let queObj = {
     options: [
       {
         title: "Nein",
-        image_name: "q_check.png",
+        image_name: "q_x.png",
         value: "Nein",
         next: "8",
       },
@@ -178,26 +246,26 @@ let queObj = {
     options: [
       {
         title: "Nein",
-        image_name: "q_check.png",
+        image_name: "q_x.png",
         value: "Nein",
         next: "9",
       },
       {
-        title: "ja",
+        title: "Ja, regelmäßig",
         image_name: "q_check_klein.png",
-        value: "ja",
+        value: "Ja, regelmäßig",
         next: "9",
       },
       {
-        title: "Ja, leichte Demenz",
+        title: "Ja, gelegentlich",
         image_name: "q_check_klein.png",
-        value: "Ja, leichte Demenz",
+        value: "Ja, gelegentlich",
         next: "9",
       },
      {
-        title: "Beantragt/Unklar",
+        title: "Noch unklar",
         image_name: "q_questionmarck.png",
-        value: "Beantragt/Unklar",
+        value: "Noch unklar",
         next: "9",
       },
     ],
@@ -270,9 +338,9 @@ let queObj = {
     question: "Wie lange benötigen Sie die Betreuung?",
     options: [
       {
-        title: "4-6 Wohnung",
+        title: "4-6 Wochen",
         image_name: "q5_2.png",
-        value: "4-6 Wohnung",
+        value: "4-6 Wochen",
         next: "12",
       },
       {
