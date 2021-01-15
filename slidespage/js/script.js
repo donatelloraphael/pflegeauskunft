@@ -1424,13 +1424,30 @@ function hashChange(oldHash, newHash, back = false) {
 
 // Load current question in the middle of the form container
 function loadQuestion(oldHash, newHash, isBack) {
-  console.log(document.getElementById(newHash));
-  document.getElementById("1").classList.add("inactive");
-  document.getElementById(oldHash).classList.add("inactive");
-  document.getElementById(newHash).classList.remove("inactive");
-
   if (newHash > "1") {
     document.getElementById("spanInfo").classList.add("inactive");
+  } else {
+    document.getElementById("spanInfo").classList.remove("inactive");
+  }
+
+  if (!newHash && oldHash) {
+    document.getElementById(oldHash).classList.add("inactive");
+    document.getElementById("1").classList.remove("inactive");
+    return;
+
+  } else if(newHash && !oldHash) {
+    document.getElementById(newHash).classList.remove("inactive");
+    document.getElementById("1").classList.add("inactive");
+    return;
+
+  } else if (!newHash && !oldHash) {
+    document.getElementById("1").classList.remove("inactive");
+    return;
+
+  } else {
+    document.getElementById("1").classList.add("inactive");
+    document.getElementById(oldHash).classList.add("inactive");
+    document.getElementById(newHash).classList.remove("inactive");
   }
 }
 
