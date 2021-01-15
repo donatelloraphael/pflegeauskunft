@@ -66,7 +66,7 @@ let queObj = {
         image_name: "zu-pflegende.png",
         value: "",
         name: "angehoeriger",
-        id: "q3",
+        id: "qq3",
         next: "q50",
       },
     ],
@@ -82,7 +82,7 @@ let queObj = {
         image_name: "zu-pflegende.png",
         value: "",
         name: "alterperson",
-        id: "q50",
+        id: "qq50",
         next: "3",
       }
     ]
@@ -445,7 +445,7 @@ let queObj = {
         image_name: "zu-pflegende.png",
         name: "angehoerigerb",
         value: "",
-        id: "q131",
+        id: "qq131",
         next: "q511",
       }
     ]
@@ -462,7 +462,7 @@ let queObj = {
         image_name: "zu-pflegende.png",
         name: "alterpersonb",
         value: "",
-        id: "q511",
+        id: "qq511",
         next: "12",
       }
     ]
@@ -479,7 +479,7 @@ let queObj = {
         image_name: "zu-pflegende.png",
         name: "alterpersonca",
         value: "",
-        id: "q522",
+        id: "qq522",
         next: "q271",
       }
     ]
@@ -496,7 +496,7 @@ let queObj = {
         image_name: "zu-pflegende.png",
         name: "alterpersoncb",
         value: "",
-        id: "q271",
+        id: "qq271",
         next: "22",
       }
     ]
@@ -1201,7 +1201,7 @@ let queObj = {
         image_name: "map_deutschland.gif",
         value: "",
         name: "postcode",
-        id: "q351",
+        id: "qq351",
         next: "finish",
       },
       
@@ -1219,6 +1219,7 @@ let queObj = {
         title: "Wer soll die Betreuungsangebote erhalten?",
         value: "",
         next: "",
+        id: "q-submit",
       },      
     ],
   },
@@ -1235,8 +1236,7 @@ let qLength = Object.keys(queObj).length;
 
 let formData = {};
 let currentOption = {};
-let currentIndex = 0;
-
+let currentQuestion = "1";
 
 questionApp.style.width = "100%";
 //questionApp.style.height =  "350px";
@@ -1247,7 +1247,7 @@ function popFunc() {
     let currentElement = queObj[item];
     
     if (currentElement.type) {
-      newElem += `<div id="${item}">
+      newElem += `<div id="${item}" class="inactive">
         <h2 class="text-center question-title">${currentElement.question}</h2>`;
 
       if (currentElement.type == "regular") {
@@ -1266,19 +1266,19 @@ function popFunc() {
       } else if (currentElement.type == "form") {
 
         if (currentElement.inputs && Array.isArray(currentElement.inputs)) {
-          newElem += `<div class="jumbotron form-panel col-10 mx-auto"><div class="form-group">`;
+          newElem += `<div class="jumbotron form-panel col-10 mx-auto" id="${item}"><div class="form-group">`;
 
           for (let cE in currentElement.inputs) {
             newElem += `
             <img class="angehoeriger-icon" src="img/${currentElement.inputs[cE].image_name}">
-          <label class="text-center size18" for="que${item}-opt${cE}">${
+          <label class="text-center size18" for="${currentElement.inputs[cE].name}">${
               currentElement.inputs[cE].title
             }</label>
           <input type="text" name="${currentElement.inputs[cE].name}" id="${currentElement.inputs[cE].id}" value="${
               currentElement.inputs[cE].value || ""}" class="form-control col-md-5 mx-auto" onkeydown="nextItemOnEnter(event)" onchange="addFormData(event)">
            <div class="plz-button-wrapper plz-button-wrapper-angehoeriger">
 <div class="option-selector">
-<a name="12" id="q131" onclick="javascript: window.location ='#${currentElement.inputs[cE].next}'" style="display: block;"><button name="button" type="button" class="button-design button plz-button next-button continue-button">weiter »</button></a>
+<a name="12" onclick="javascript: window.location ='#${currentElement.inputs[cE].next}'" style="display: block;"><button name="button" type="button" class="button-design button plz-button next-button continue-button">weiter »</button></a>
 </div>
 <p></p></div>
             `;
@@ -1291,7 +1291,7 @@ function popFunc() {
 
           newElem += `</div></div>`;
         }
-      }else if (currentElement.type == "wrapper") {
+      } else if (currentElement.type == "wrapper") {
         if (currentElement.colms && Array.isArray(currentElement.colms)) {
           newElem += ``;
 
@@ -1394,8 +1394,8 @@ function addFormData(e) {
 
 // Advances to next question on Enter key down
 function nextItemOnEnter(e) {
-  // e.preventDefault();
   if (e.keycode === 13) {
+    e.preventDefault();
     loadNext();
   }
 }
@@ -1422,11 +1422,25 @@ function hashChange(oldHash, newHash, back = false) {
   }
 }
 
+// Load current question in the middle of the form container
+function loadQuestion(oldHash, newHash, isBack) {
+  console.log(document.getElementById(newHash));
+  document.getElementById("1").classList.add("inactive");
+  document.getElementById(oldHash).classList.add("inactive");
+  document.getElementById(newHash).classList.remove("inactive");
+
+  if (newHash > "1") {
+    document.getElementById("spanInfo").classList.add("inactive");
+  }
+}
+
 /********************EVENT LISTENERS********************/
 
 // instantiate the items
 window.onload = function () {
+  window.location.hash = "1";
   popFunc();
+  document.getElementById("1").classList.remove("inactive");
 };
 
 //User's mouse is inside the page.
@@ -1441,8 +1455,8 @@ document.onmouseleave = function() {
 
 // Detect backspace button click and call hashChange
 window.onhashchange = function(e) {  
-  let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#"));
-  let newHash = e.newURL.slice(e.newURL.lastIndexOf("#"));
+  let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#") + 1);
+  let newHash = e.newURL.slice(e.newURL.lastIndexOf("#") + 1);
 
   if (window.innerDocClick) {
     hashChange(oldHash, newHash, false);
