@@ -1175,7 +1175,6 @@ let queObj = {
   finish: {
     type: "wrapper",
     question: "Nur noch ein Schritt zu Ihrem Anbietervergleich",
-    next: "finished",
     colms: [
       {
         r1: "Frau",
@@ -1202,7 +1201,7 @@ let currentOption = {};
 let currentIndex = 0;
 
 
-questionApp.style.width = "100%";
+questionApp.style.width = qLength * 100 + "%";
 //questionApp.style.height =  "350px";
 
 function popFunc() {
@@ -1347,18 +1346,171 @@ Hiermit stimme ich  zu.
   document.body.style.display = '';
 }
 
+let GlobalcurrentKey = 1;
+
+let moveOnly = false;
+let queNumber = 0;
+
+function hashChange(hash) {
+  location.hash = "que" + hash;
+  console.log($('.ht-'+hash).height());
+  var height = $('.ht-'+hash).height();
+  questionApp.style.height =  height+"px";
+
+    /*if(hash==15){
+      questionApp.style.height =  "450px";
+    }else{
+      questionApp.style.height =  "350px";
+
+    }*/
+}
+
+function loadQue(currentKey = null, moreOpts = null, moveTime = 500) {
+  if (slideR) {
+    slideR = false;
+    setTimeout(function () {
+      if ((currentKey || moreOpts == "1") && currentKey in queObj) {
+        // if (queObj[currentKey].finish) {
+        //   questionApp.submit();
+        //   return;
+        // }
+      }
+
+      if (!currentKey) {
+        if (moreOpts == "0") {
+          currentKey = previousKey;
+
+          console.log("yes ! Getting previous key.");
+          console.log("the key", previousKey);
+        }
+      }
+
+      if (!currentKey) {
+        // get the first key of the object
+        currentKey = Object.keys(queObj)[0];
+      }
+
+      console.log(Object.keys(queObj).indexOf(String(currentKey)));
+      console.log("CURR_KE", currentKey)
+
+      movePosition(currentKey);
+
+      spanInfo.style.display = currentKey <= 1 ? "" : "none";
+
+      if (moreOpts == "0") {
+        queNumber = Math.min(Object.keys(queObj).length, queNumber - 1);
+      }
+      // fill in the question number
+      else queNumber = Math.max(1, queNumber + 1);
+
+      GlobalcurrentKey = currentKey;
+
+      // add History
+      if (!moveOnly && !previousHistory.includes(GlobalcurrentKey)) {
+        previousHistory.push(GlobalcurrentKey);
+      }
+
+      // document.getElementById(`opt_${currentKey}`).innerText =
+      previousHistory.length;
+      hashChange(GlobalcurrentKey);
+    }, moveTime);
+    setTimeout(function () {
+      slideR = true;
+    }, 500);
+    initiated = true;
+  }
+}
+
 function loadNext() {
+  // let nextKey = getNextKey();
   const nextKey = currentOption.next;
+
+  // if (queObj[String(GlobalcurrentKey)].finish) {
+  //   return questionApp.submit();
+  // }
 
   if (!nextKey) {
     return;
   }
 
-  if (nextKey === "finished") {
-    return questionApp.submit();
+  hashChange(nextKey);
+  // loadQue(nextKey, null, false, 500);
+}
+
+function loadPrevious() {
+  previousHistory.pop();
+  let nextKey;
+  if (!previousHistory.length) {
+    nextKey = Object.keys(queObj)[0];
+  } else {
+    nextKey = previousHistory[previousHistory.length - 1];
   }
 
-  
+  hashChange(nextKey);
+}
+
+function findRow(node) {
+  var i = 2;
+  while ((node = node.previousSibling)) i += node.nodeType ^ 3;
+  return i >> 1;
+}
+
+let initiated = false;
+
+// instantiate the loadQue
+window.onload = function () {
+  popFunc();
+  let theKey = location.hash
+    ? location.hash.replace(/\D+/gim, "")
+    : Object.keys(queObj)[0];
+  loadQue(theKey, null, 0);
+};
+
+window.onhashchange = function (e) {
+  e.preventDefault();
+  if (initiated) loadQue(location.hash.replace(/\D+/gim, ""), null, 500);
+};
+
+function movePosition(currentKey) {
+  let theCurrentKey = 1;
+  let theElement, currentPosition, theCurrentElement, theLeftPosition, theRow;
+  // currentKey = parseInt(currentKey);
+
+  if (GlobalcurrentKey) {
+    theCurrentKey = parseInt(GlobalcurrentKey);
+  }
+  theElement = document.getElementById(theCurrentKey);
+  theCurrentElement = document.getElementById(currentKey);
+  theLeftPosition = parseInt(questionApp.style.left) || 0;
+
+  console.log(
+    "the current elements",
+    theElement,
+    theCurrentElement,
+    theLeftPosition
+  );
+
+  theRow = findRow(theCurrentElement);
+
+  currentPosition = 100 - theRow * 100;
+
+  console.log("current position: ", currentPosition);
+
+  if (GlobalcurrentKey + 1 < currentKey) {
+    questionApp.style.left = currentPosition + 100 + "%";
+  } else if (GlobalcurrentKey > currentKey + 1) {
+    questionApp.style.left = currentPosition - 100 + "%";
+  }
+
+  if (parseInt(currentPosition) != 0) {
+    currentPosition += "%";
+  }
+
+  $(questionApp).animate({ left: currentPosition });
+
+  console.log("PR BAR Width:", Object.keys(queObj).indexOf(currentKey) / (qLength - 1));
+  progressBar.style.width =
+    (Object.keys(queObj).indexOf(currentKey) / (qLength - 1)) * 100 + "%";
 }
 
 // Creates formData object to post to server
@@ -1385,45 +1537,3 @@ function setCurrentOption(e) {
   currentOption.id = e.target.id;
   currentOption.next = e.target.getAttribute("data-next");
 }
-
-// On changing hash values
-function hashChange(oldHash, newHash, back = false) {
-  let hash;
-  if (back) {
-    previousHistory.pop();
-    loadQuestion(oldHash, newHash, true);
-  } else {
-    previousHistory.push(newHash);
-    loadQuestion(newHash, oldHash, false);
-  }
-}
-
-/********************EVENT LISTENERS********************/
-
-// instantiate the items
-window.onload = function () {
-  popFunc();
-};
-
-//User's mouse is inside the page.
-document.onmouseover = function() {
-    window.innerDocClick = true;
-};
-
-//User's mouse has left the page.
-document.onmouseleave = function() {
-    window.innerDocClick = false;
-};
-
-// Detect backspace button click and call hashChange
-window.onhashchange = function(e) {  
-  if (window.innerDocClick) {
-    hashChange(oldHash, newHash, false);
-
-  } else {
-    let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#"));
-    let newHash = e.newURL.slice(e.newURL.lastIndexOf("#"));
-
-    hashChange(oldHash, newHash, true);
-  }
-};
