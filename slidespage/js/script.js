@@ -3,6 +3,7 @@ let queObj = {
     type: "regular",
     question: "Für wen suchen Sie eine 24 Stunden Pflege?",
     name: "fuerwen",
+    id: "1",
     options: [
       {
         title: "Mich selbst",
@@ -26,6 +27,7 @@ let queObj = {
     type: "regular",
     question: "Wie viele Personen leben im Haushalt?",
     name: "haushaltspersonen",
+    id: "2",
     options: [
       {
         title: "Eine Person",
@@ -57,6 +59,7 @@ let queObj = {
     type: "form",
     question: "Um was für einen Angehörigen handelt es sich?",
     name: "angehoeriger",
+    id: "q3",
     inputs: [
       {
         title: "z.B. Verwandtschaftsverhältnis:",
@@ -72,6 +75,7 @@ let queObj = {
     type: "form",
     question: "Wie alt ist Ihr zu pflegender Angehöriger?",
     name: "alterperson",
+    id: "q50",
     inputs: [
       {
         title: "Alter oder Geburtsdatum:",
@@ -87,6 +91,7 @@ let queObj = {
     type: "regular",
     question: "Ist ein Pflegegrad bereits vorhanden?",
     name: "pflegegrad",
+    id: "3",
     options: [
       {
         title: "Pflegegrad 1-2",
@@ -134,6 +139,7 @@ let queObj = {
     type: "regular",
     question: "Wie mobil ist die pflegebedürftige Person?",
     name: "mobilitaet",
+    id: "4",
     options: [
       {
         title: "Uneingeschränkt mobil",
@@ -173,6 +179,7 @@ let queObj = {
     type: "regular",
     question: "Ist die pflegebedürftige Person dement?",
     name: "demenz",
+    id: "5",
     options: [
       {
         title: "Nein",
@@ -212,6 +219,7 @@ let queObj = {
     type: "regular",
     question: "Wird eine nächtliche Betreuung benötigt?",
     name: "nacht",
+    id: "6",
     options: [
       {
         title: "Nein",
@@ -251,6 +259,7 @@ let queObj = {
     type: "regular",
     question: "Welche Deutschkenntnisse soll Ihre Pflegekraft haben?",
     name: "sprache",
+    id: "7",
     options: [
       {
         title: "Grundkenntnisse",
@@ -290,6 +299,7 @@ let queObj = {
     type: "regular",
     question: "Gibt es eine Möglichkeit zur Unterbringung der Pflegekraft?",
     name: "unterbringung",
+    id: "8",
     options: [
       {
         title: "Gästezimmer",
@@ -321,6 +331,7 @@ let queObj = {
     type: "regular",
     question: "Wie lange benötigen Sie die Betreuung?",
     name: "dauer",
+    id: "9",
     options: [
       {
         title: "4-6 Wochen",
@@ -353,6 +364,7 @@ let queObj = {
     type: "regular",
     question: "Wann soll die Betreuung beginnen?",
     name: "zeitpunkt",
+    id: "10",
     options: [
       {
         title: "Schnellstmöglich",
@@ -393,6 +405,7 @@ let queObj = {
     type: "regular",
     question: "Soll mehr als eine Person im Haushalt gepflegt werden?",
     name: "betreuungspersonen",
+    id: "11",
     options: [
       {
         title: "Ja",
@@ -425,6 +438,7 @@ let queObj = {
     type: "form",
     question: "Um was für einen Angehörigen handelt es sich?",
     name: "angehoerigerb",
+    id: "q131",
     inputs: [
       {
         title: "z.B. Verwandtschaftsverhältnis:",
@@ -441,6 +455,7 @@ let queObj = {
     type: "form",
     question: "Wie alt ist Ihr zu pflegender Angehöriger?",
     name: "alterpersonb",
+    id: "q511",
     inputs: [
       {
         title: "Alter oder Geburtsdatum:",
@@ -457,6 +472,7 @@ let queObj = {
     type: "form",
     question: "Wie alt ist Ihr erster pflegebedürftiger Angehöriger?",
     name: "alterpersonca",
+    id: "q522",
     inputs: [
       {
         title: "Alter oder Geburtsdatum:",
@@ -473,6 +489,7 @@ let queObj = {
     type: "form",
     question: "Wie alt ist Ihr zweiter pflegebedürftiger Angehöriger?",
     name: "alterpersoncb",
+    id: "q271",
     inputs: [
       {
         title: "Alter oder Geburtsdatum:",
@@ -489,6 +506,7 @@ let queObj = {
     type: "regular",
     question: "Ist ein Pflegegrad bereits vorhanden?",
     name: "pflegegradb",
+    id: "12",
     options: [
       {
         title: "Pflegegrad 1-2",
@@ -537,6 +555,7 @@ let queObj = {
     type: "regular",
     question: "Wie mobil ist die pflegebedürftige Person?",
     name: "mobilitaetb",
+    id: "13",
     options: [
       {
         title: "Uneingeschränkt",
@@ -577,6 +596,7 @@ let queObj = {
     type: "regular",
     question: "Ist die pflegebedürftige Person dement?",
     name: "demenzb",
+    id: "14",
     options: [
       {
         title: "Nein",
@@ -617,6 +637,7 @@ let queObj = {
     type: "regular",
     question: "Wird eine nächtliche Betreuung benötigt?",
     name: "nachtb",
+    id: "15",
     options: [
       {
         title: "Nein",
@@ -657,6 +678,7 @@ let queObj = {
     type: "regular",
     question: "Welche Deutschkenntnisse soll Ihre Pflegekraft haben?",
     name: "spracheb",
+    id: "16",
     options: [
       {
         title: "Grundkenntnisse",
@@ -697,6 +719,7 @@ let queObj = {
     type: "regular",
     question: "Gibt es eine Möglichkeit zur Unterbringung der Pflegekraft?",
     name: "unterbringungb",
+    id: "17",
     options: [
       {
         title: "Gästezimmer",
@@ -729,6 +752,7 @@ let queObj = {
     type: "regular",
     question: "Wie lange benötigen Sie die Betreuung?",
     name: "dauerb",
+    id: "18",
     options: [
       {
         title: "4-6 Wochen",
@@ -761,6 +785,7 @@ let queObj = {
     type: "regular",
     question: "Wann soll die Betreuung beginnen?",
     name: "zeitpunktb",
+    id: "19",
     options: [
       {
         title: "Schnellstmöglich",
@@ -801,6 +826,7 @@ let queObj = {
     type: "regular",
     question: "Hat Ihr erster Angehöriger bereits einen Pflegegrad?",
     name: "pflegegradca",
+    id: "22",
     options: [
       {
         title: "Pflegegrad 1-2",
@@ -849,6 +875,7 @@ let queObj = {
     type: "regular",
     question: "Hat Ihr zweiter Angehöriger bereits einen Pflegegrad?",
     name: "pflegegradcb",
+    id: "23",
     options: [
       {
         title: "Pflegegrad 1-2",
@@ -897,6 +924,7 @@ let queObj = {
     type: "regular",
     question: "Ist Ihr erster pflegebedürftiger Angehöriger dement?",
     name: "demenzca",
+    id: "24",
     options: [
       {
         title: "Nein",
@@ -937,6 +965,7 @@ let queObj = {
     type: "regular",
     question: "Ist Ihr zweiter pflegebedürftiger Angehöriger dement?",
     name: "demenzcb",
+    id: "25",
     options: [
       {
         title: "Nein",
@@ -977,6 +1006,7 @@ let queObj = {
     type: "regular",
     question: "Wird eine nächtliche Betreuung benötigt?",
     name: "nachtc",
+    id: "26",
     options: [
       {
         title: "Nein",
@@ -1017,6 +1047,7 @@ let queObj = {
     type: "regular",
     question: "Welche Deutschkenntnisse soll Ihre Pflegekraft haben?",
     name: "sprachec",
+    id: "27",
     options: [
       {
         title: "Grundkenntnisse",
@@ -1057,6 +1088,7 @@ let queObj = {
     type: "regular",
     question: "Gibt es eine Möglichkeit zur Unterbringung der Pflegekraft?",
     name: "unterbringungc",
+    id: "28",
     options: [
       {
         title: "Gästezimmer",
@@ -1089,6 +1121,7 @@ let queObj = {
     type: "regular",
     question: "Wie lange benötigen Sie die Betreuung?",
     name: "dauerc",
+    id: "29",
     options: [
       {
         title: "4-6 Wochen",
@@ -1121,6 +1154,7 @@ let queObj = {
     type: "regular",
     question: "Wann soll die Betreuung beginnen?",
     name: "zeitpunktc",
+    id: "30",
     options: [
       {
         title: "Schnellstmöglich",
@@ -1160,6 +1194,7 @@ let queObj = {
     type: "form",
     question: "In welcher Region suchen Sie die 24 Stunden Pflege?",
     name: "postcode",
+    id: "q351",
     inputs: [
       {
         title: "Postleitzahl oder Wohnort:",
@@ -1167,7 +1202,7 @@ let queObj = {
         value: "",
         name: "postcode",
         id: "q351",
-        next: "loading",
+        next: "finish",
       },
       
     ],
@@ -1176,6 +1211,7 @@ let queObj = {
     type: "wrapper",
     question: "Nur noch ein Schritt zu Ihrem Anbietervergleich",
     next: "finished",
+    id: "finish",
     colms: [
       {
         r1: "Frau",
@@ -1211,12 +1247,8 @@ function popFunc() {
     let currentElement = queObj[item];
     
     if (currentElement.type) {
-      newElem += `<div id="${
-        Object.keys(queObj).indexOf(item) + 1
-      }" class="fly-about ht-${
-        Object.keys(queObj).indexOf(item) + 1
-      }" style="width: ${100 / qLength}%;">
-          <h2 class="text-center question-title">${currentElement.question}</h2>`;
+      newElem += `<div id="${item}">
+        <h2 class="text-center question-title">${currentElement.question}</h2>`;
 
       if (currentElement.type == "regular") {
         if (currentElement.options && Array.isArray(currentElement.options)) {
@@ -1242,8 +1274,8 @@ function popFunc() {
           <label class="text-center size18" for="que${item}-opt${cE}">${
               currentElement.inputs[cE].title
             }</label>
-          <input type="text" name="que${item}" id="${currentElement.inputs[cE].id}" value="${
-              currentElement.inputs[cE].value || ""}" class="form-control col-md-5 mx-auto" onkeydown="submitFormOnEnter(event)" onchange="addFormData(event)">
+          <input type="text" name="${currentElement.inputs[cE].name}" id="${currentElement.inputs[cE].id}" value="${
+              currentElement.inputs[cE].value || ""}" class="form-control col-md-5 mx-auto" onkeydown="nextItemOnEnter(event)" onchange="addFormData(event)">
            <div class="plz-button-wrapper plz-button-wrapper-angehoeriger">
 <div class="option-selector">
 <a name="12" id="q131" onclick="javascript: window.location ='#${currentElement.inputs[cE].next}'" style="display: block;"><button name="button" type="button" class="button-design button plz-button next-button continue-button">weiter »</button></a>
@@ -1347,18 +1379,10 @@ Hiermit stimme ich  zu.
   document.body.style.display = '';
 }
 
+// Re-directs to hash of next question
 function loadNext() {
   const nextKey = currentOption.next;
-
-  if (!nextKey) {
-    return;
-  }
-
-  if (nextKey === "finished") {
-    return questionApp.submit();
-  }
-
-  
+  window.location.hash = nextKey;
 }
 
 // Creates formData object to post to server
@@ -1369,8 +1393,8 @@ function addFormData(e) {
 }
 
 // Advances to next question on Enter key down
-function submitFormOnEnter(e) {
-  e.preventDefault();
+function nextItemOnEnter(e) {
+  // e.preventDefault();
   if (e.keycode === 13) {
     loadNext();
   }
@@ -1394,7 +1418,7 @@ function hashChange(oldHash, newHash, back = false) {
     loadQuestion(oldHash, newHash, true);
   } else {
     previousHistory.push(newHash);
-    loadQuestion(newHash, oldHash, false);
+    loadQuestion(oldHash, newHash, false);
   }
 }
 
@@ -1417,13 +1441,12 @@ document.onmouseleave = function() {
 
 // Detect backspace button click and call hashChange
 window.onhashchange = function(e) {  
+  let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#"));
+  let newHash = e.newURL.slice(e.newURL.lastIndexOf("#"));
+
   if (window.innerDocClick) {
     hashChange(oldHash, newHash, false);
-
   } else {
-    let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#"));
-    let newHash = e.newURL.slice(e.newURL.lastIndexOf("#"));
-
     hashChange(oldHash, newHash, true);
   }
 };
