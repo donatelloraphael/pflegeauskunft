@@ -1428,6 +1428,7 @@ function loadQuestion(oldHash, newHash, isBack) {
   if (oldHash.length > 4) {
     oldHash = false;
   }
+
   if (newHash > "1") {
     document.getElementById("spanInfo").classList.add("inactive");
   } else {
@@ -1437,18 +1438,18 @@ function loadQuestion(oldHash, newHash, isBack) {
     return;
 
   } else if (newHash && oldHash) {
-    document.getElementById(oldHash).classList.add("inactive");
     document.getElementById(oldHash).classList.remove("active");
-    document.getElementById("1").classList.remove("active");
-    document.getElementById("1").classList.add("inactive");
+    document.getElementById(oldHash).classList.add("moveout");
     document.getElementById(newHash).classList.remove("inactive");
     document.getElementById(newHash).classList.add("active");
-    return;
+    setTimeout(() => {
+      document.getElementById(oldHash).classList.remove("moveout");
+      document.getElementById(oldHash).classList.add("inactive");
+    }, 600);
 
   } else if(newHash && !oldHash) {
     document.getElementById("1").classList.add("active");
     document.getElementById("1").classList.remove("inactive");
-    return;
   }
 }
 
@@ -1458,13 +1459,6 @@ function loadQuestion(oldHash, newHash, isBack) {
 window.onload = function () {
   popFunc();
   window.location.hash = "1";
-
-  // hashChange(null, null, false);
-
-  // seTimeout(() => {
-    // hashChange(null, null, false);
-    // window.location.hash = "1";
-  // }, 1000);
 };
 
 //User's mouse is inside the page.
