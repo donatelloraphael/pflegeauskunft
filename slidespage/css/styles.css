@@ -8,7 +8,7 @@ body {
 }
 
 *{
- /*outline: 1px solid red !important;*/
+ outline: 1px solid red !important;
 }
 /**************Nav Bar******************/
 
@@ -32,7 +32,6 @@ body {
   width: 460px;
   height: auto;
   position: relative;
-  top: 2px;
 }
 
 .m_logo {
@@ -56,12 +55,11 @@ body {
 
 .form-wrapper {
   width: 100%;
-  padding: 0 0 15px 0;
 }
 
 .form-wrapper-inner {
   max-width: 965px;
-  height: 600px;
+  height: 100%;
   margin: 0 auto;
   box-shadow: 0 0 5px #aaa;
   position: relative;
@@ -112,8 +110,15 @@ body {
   border-bottom-right-radius: 5px;
   font-weight: 400;
   position: relative;
-  height: 390px;
+  height: 375px;
   overflow: hidden;
+  margin: 0;
+  padding: 30px 0 0 0;
+}
+
+.form-container, .inner-container {
+  height: 100%;
+  position: relative;
 }
 
 .question {
@@ -710,14 +715,16 @@ img {
 /*************** Start of style css for tooltip **************/
 .tooltip-container {
   max-width: 965px;
-  margin: 0 auto;
-  text-align: center;
+  margin: 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 16px;
   letter-spacing: 0;
   border-radius: 5px;
   background-color: #fff;
   height: 94px;
-  padding: 20px 25px 40px 25px;
+  /*padding: 25px 40px 40px;*/
   box-shadow: 0 0 5px #aaa;
   line-height: 1.4;
 }
@@ -725,17 +732,20 @@ img {
 .pro-bullets {
   display: flex;
   justify-content: space-between;
-  max-width: 100%;
+  align-items: center;
+  width: 100%;
 }
 
 .pro-bullets div {
-  margin: 0 0 20px;
+  text-align: center;
 }
 
 p.serv {
   color: grey;
   font-size: 13px;
   padding-top: 5px;
+  padding-bottom: 0;
+  margin: 0;
 }
 
 .tt {
@@ -782,18 +792,19 @@ p.serv {
 }
 
 .ttt::after {
-    content: "";
-    position: absolute;
-    left: calc(45% - 0.35em);
-    bottom: -10px;
-    transform: rotate(180deg);
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 10px solid rgb(221, 221, 221, 0.9);
-    clear: both;
+  content: "";
+  position: absolute;
+  left: calc(45% - 0.35em);
+  bottom: -10px;
+  transform: rotate(180deg);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 10px solid rgb(221, 221, 221, 0.9);
+  clear: both;
 }
+
 /* End of style css for tooltip */
 
 
@@ -811,7 +822,8 @@ p.serv {
   }
 
   .cta-container {
-    padding: 30px;
+    padding: 30px 30px 0 30px;
+    height: auto;
   }
 
   .body_section {
@@ -820,9 +832,10 @@ p.serv {
     background-position: 137% 0;
   }
 
+
   .tooltip-container {
     height: 110px;
-    padding: 20px 60px 40px 60px;
+    margin-bottom: 30px;
   }
 
   .pro-bullets {
@@ -838,6 +851,14 @@ p.serv {
   .ttt::after {
     left: calc(44% - 0.35em);
   }
+
+  .form-wrapper {
+    height: 585px;
+  }
+
+  .form-wrapper-inner {
+    height: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -847,8 +868,6 @@ p.serv {
 
   .m_logo {
     padding: 18px 0;
-    position: relative;
-    bottom: 5px;
   }
 
   .cta-container {
@@ -873,6 +892,7 @@ p.serv {
 
   .body_section2 {
     border-radius: 0;
+    height: 365px;
   }
 
   .form-wrapper-inner {
@@ -915,7 +935,6 @@ p.serv {
 
   .tooltip-container {
     height: 110px;
-    padding: 20px 40px 40px 40px;
   }
 
   .danke-text {
@@ -993,10 +1012,13 @@ p.serv {
   }
 
   /*******************/
-
-
   .tooltip-container {
     border-radius: 0;
+    margin-bottom: 15px;
+  }
+
+  .form-wrapper {
+    height: auto;
   }
 }
 
@@ -1035,7 +1057,7 @@ p.serv {
   }
 
   .tt .ttt {
-    top: -20px!important;
+    top: -32px!important;
     width: 91px!important;
     left: -7px!important;
   }
