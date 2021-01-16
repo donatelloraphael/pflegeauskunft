@@ -1280,8 +1280,7 @@ function popFunc() {
           <label class="text-center size18" for="${currentElement.inputs[cE].name}">${
               currentElement.inputs[cE].title
             }</label>
-          <input type="text" name="${currentElement.inputs[cE].name}" id="${currentElement.inputs[cE].id}" value="${
-              currentElement.inputs[cE].value || ""}" class="form-control col-md-5 mx-auto" onkeydown="nextItemOnEnter(event)" onchange="addFormData(event)">
+          <input type="text" name="${currentElement.inputs[cE].name}" id="${currentElement.inputs[cE].id}" value=""}" class="form-control col-md-5 mx-auto" onkeydown="nextItemOnEnter(event)">
            <div class="plz-button-wrapper plz-button-wrapper-angehoeriger">
 <div class="option-selector">
 <a name="12" onclick="javascript: window.location ='#/${currentElement.inputs[cE].next}'" style="display: block;"><button name="button" type="button" class="button-design button plz-button next-button continue-button">weiter »</button></a>
@@ -1345,7 +1344,7 @@ Unser Service:<br>
 <p></p></div>
 <p></p></div>
 <p></p></div>
-<div class="participant-column" @onkeydown="checkSubmitOnEnter(event)">
+<div class="participant-column">
 <div class="participant-box">
 <div class="participant-row">
 <div class="participant-header"><label class="text-center size18" for="que${item}-opt${cE}">${
@@ -1353,20 +1352,20 @@ Unser Service:<br>
             }</label></div>
 </div>
 <div class="participant-row">
-<div class="participant-inline"><input type="radio" name="gender" onchange="addFormData(event);" class="female" value="Frau" id="sex-female" aria-invalid="false"></div>
+<div class="participant-inline"><input type="radio" name="gender" class="female" value="Frau" id="sex-female" aria-invalid="false"></div>
 <div class="participant-inline"><label for="sex-female" class="">Frau</label></div>
-<div class="participant-inline"><input type="radio" name="gender" value="Herr" id="sex-male" onchange="addFormData(event);" aria-invalid="false" required="" class="valid"></div>
+<div class="participant-inline"><input type="radio" name="gender" value="Herr" id="sex-male" aria-invalid="false" required="" class="valid"></div>
 <div class="participant-inline"><label for="sex-male" class="">Herr</label></div>
 </div>
 <div class="participant-row">
-<div class="participant-inline participant-col-left"><input type="text" name="firstname" value="" id="first-name" onchange="addFormData(event);" placeholder="Vorname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="given-name" autocompletetype="given-name" aria-required="true" aria-invalid="true"></div>
-<div class="participant-inline participant-col-right"><input type="text" name="lastname" value="" id="last-name" onchange="addFormData(event);" placeholder="Nachname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="family-name" autocompletetype="family-name" aria-required="true" aria-invalid="true"></div>
+<div class="participant-inline participant-col-left"><input type="text" name="firstname" value="" id="first-name" placeholder="Vorname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="given-name" autocompletetype="given-name" aria-required="true" aria-invalid="true"></div>
+<div class="participant-inline participant-col-right"><input type="text" name="lastname" value="" id="last-name" placeholder="Nachname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="family-name" autocompletetype="family-name" aria-required="true" aria-invalid="true"></div>
 </div>
 <div class="participant-row">
-<div class="participant-single"><input type="tel" name="phone" value="" id="phone" placeholder="Telefon" class="input" onchange="addFormData(event);" required="required" data-required="true" data-remote-validate="false" x-autocompletetype="number" autocompletetype="number" aria-required="true" aria-invalid="true"></div>
+<div class="participant-single"><input type="tel" name="phone" value="" id="phone" placeholder="Telefon" class="input" required="required" data-required="true" data-remote-validate="false" x-autocompletetype="number" autocompletetype="number" aria-required="true" aria-invalid="true"></div>
 </div>
 <div class="participant-row">
-<div class="participant-single"><input type="email" name="email" value="" id="email" placeholder="E-Mail" required="required" onchange="addFormData(event);" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="email" autocompletetype="email" aria-required="true" aria-invalid="true"></div>
+<div class="participant-single"><input type="email" name="email" value="" id="email" placeholder="E-Mail" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="email" autocompletetype="email" aria-required="true" aria-invalid="true"></div>
 </div>
 <div class="participant-row">
 <div class="participant-button">
@@ -1506,29 +1505,38 @@ function checkForSpecialConditions(hash) {
   }
 }
 
-// Checks if pressed key is Enter and if so, calls submitData function
-function checkSubmitOnEnter(e) {
-  if (e.keycode === 13) {
-    e.preventDefault();
-    if (verifyRequired()) {
-      submitForm();
-    }
-  }
+// Make appendable string containing inputs from formData
+function createFormInputs() {
+  let inputString = "";
+   for (let item in formData) {
+    inputString += `<input type="hidden" name="${item}" value="${formData[item]}"/>`;
+   }
+   return inputString;
 }
 
-// Verifies if necessary data is entered on the final contact form
-function verifyRequired() {
-  if (formData.gender && formData.firstname && formData.lastname && formData.phone && formData.email) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// // Checks if pressed key is Enter and if so, calls submitData function
+// function checkSubmitOnEnter(e) {
+//   if (e.keycode === 13) {
+//     e.preventDefault();
+//     if (verifyRequired()) {
+//       submitForm();
+//     }
+//   }
+// }
 
-// Posts the form data to backend
-function submitForm() {
+// // Verifies if necessary data is entered on the final contact form
+// function verifyRequired() {
+//   if (formData.gender && formData.firstname && formData.lastname && formData.phone && formData.email) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
-}
+// // Posts the form data to backend
+// function submitForm() {
+
+// }
 /********************EVENT LISTENERS********************/
 
 // instantiate the items
@@ -1553,11 +1561,17 @@ window.onhashchange = function(e) {
   let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#/") + 2);
   let newHash = e.newURL.slice(e.newURL.lastIndexOf("#/") + 2);
   checkForSpecialConditions(newHash);
-  console.log("OLD", oldHash)
-  console.log("NEW", newHash)
+
   if (window.innerDocClick) {
     hashChange(oldHash, newHash, false);
   } else {
     hashChange(oldHash, newHash, true);
   }
 };
+
+// Append other data that is not included in the form submission by default
+$('#questionApp').submit(function(eventObj) {
+    const inputs = createFormInputs();
+    $(this).append(inputs);
+    return true;
+});
