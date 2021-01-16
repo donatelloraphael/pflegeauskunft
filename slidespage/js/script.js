@@ -1424,38 +1424,31 @@ function hashChange(oldHash, newHash, back = false) {
 
 // Load current question in the middle of the form container
 function loadQuestion(oldHash, newHash, isBack) {
+  // make oldHash falsy value if file path is given by parameter
+  if (oldHash.length > 4) {
+    oldHash = false;
+  }
   if (newHash > "1") {
     document.getElementById("spanInfo").classList.add("inactive");
   } else {
     document.getElementById("spanInfo").classList.remove("inactive");
   }
+  if (!oldHash && !newHash) {
+    return;
 
-  if (!newHash && oldHash) {
+  } else if (newHash && oldHash) {
     document.getElementById(oldHash).classList.add("inactive");
     document.getElementById(oldHash).classList.remove("active");
-    document.getElementById("1").classList.remove("inactive");
-    document.getElementById("1").classList.add("active");
+    document.getElementById("1").classList.remove("active");
+    document.getElementById("1").classList.add("inactive");
+    document.getElementById(newHash).classList.remove("inactive");
+    document.getElementById(newHash).classList.add("active");
     return;
 
   } else if(newHash && !oldHash) {
-    document.getElementById(newHash).classList.remove("inactive");
-    document.getElementById(newHash).classList.add("active");
-    document.getElementById("1").classList.add("inactive");
-    document.getElementById("1").classList.remove("active");
-    return;
-
-  } else if (!newHash && !oldHash) {
-    document.getElementById("1").classList.remove("inactive");
     document.getElementById("1").classList.add("active");
+    document.getElementById("1").classList.remove("inactive");
     return;
-
-  } else {
-    document.getElementById("1").classList.add("inactive");
-    document.getElementById("1").classList.remove("active");
-    document.getElementById(oldHash).classList.add("inactive");
-    document.getElementById(oldHash).classList.remove("active");
-    document.getElementById(newHash).classList.remove("inactive");
-    document.getElementById(newHash).classList.add("active");
   }
 }
 
@@ -1463,10 +1456,15 @@ function loadQuestion(oldHash, newHash, isBack) {
 
 // instantiate the items
 window.onload = function () {
-  window.location.hash = "1";
   popFunc();
-  document.getElementById("1").classList.remove("inactive");
-  document.getElementById("1").classList.add("active");
+  window.location.hash = "1";
+
+  // hashChange(null, null, false);
+
+  // seTimeout(() => {
+    // hashChange(null, null, false);
+    // window.location.hash = "1";
+  // }, 1000);
 };
 
 //User's mouse is inside the page.
@@ -1483,7 +1481,8 @@ document.onmouseleave = function() {
 window.onhashchange = function(e) {  
   let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#") + 1);
   let newHash = e.newURL.slice(e.newURL.lastIndexOf("#") + 1);
-
+  console.log("OLD", oldHash)
+  console.log("NEW", newHash)
   if (window.innerDocClick) {
     hashChange(oldHash, newHash, false);
   } else {
