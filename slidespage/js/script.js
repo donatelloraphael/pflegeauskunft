@@ -1278,7 +1278,7 @@ function popFunc() {
               currentElement.inputs[cE].value || ""}" class="form-control col-md-5 mx-auto" onkeydown="nextItemOnEnter(event)" onchange="addFormData(event)">
            <div class="plz-button-wrapper plz-button-wrapper-angehoeriger">
 <div class="option-selector">
-<a name="12" onclick="javascript: window.location ='#${currentElement.inputs[cE].next}'" style="display: block;"><button name="button" type="button" class="button-design button plz-button next-button continue-button">weiter »</button></a>
+<a name="12" onclick="javascript: window.location ='#/${currentElement.inputs[cE].next}'" style="display: block;"><button name="button" type="button" class="button-design button plz-button next-button continue-button">weiter »</button></a>
 </div>
 <p></p></div>
             `;
@@ -1382,7 +1382,7 @@ Hiermit stimme ich  zu.
 // Re-directs to hash of next question
 function loadNext() {
   const nextKey = currentOption.next;
-  window.location.hash = nextKey;
+  window.location.hash = "/" + nextKey;
 }
 
 // Creates formData object to post to server
@@ -1425,7 +1425,7 @@ function hashChange(oldHash, newHash, back = false) {
 // Load current question in the middle of the form container
 function loadQuestion(oldHash, newHash, isBack) {
   // make oldHash falsy value if file path is given by parameter
-  if (oldHash.length > 4) {
+  if (oldHash.length > 6) {
     oldHash = false;
   }
 
@@ -1458,7 +1458,7 @@ function loadQuestion(oldHash, newHash, isBack) {
 // instantiate the items
 window.onload = function () {
   popFunc();
-  window.location.hash = "1";
+  window.location.hash = "/1";
 };
 
 //User's mouse is inside the page.
@@ -1473,8 +1473,8 @@ document.onmouseleave = function() {
 
 // Detect backspace button click and call hashChange
 window.onhashchange = function(e) {  
-  let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#") + 1);
-  let newHash = e.newURL.slice(e.newURL.lastIndexOf("#") + 1);
+  let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#/") + 2);
+  let newHash = e.newURL.slice(e.newURL.lastIndexOf("#/") + 2);
   console.log("OLD", oldHash)
   console.log("NEW", newHash)
   if (window.innerDocClick) {
