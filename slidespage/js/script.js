@@ -1204,14 +1204,20 @@ let queObj = {
         id: "35",
         next: "36",
       },
-      
     ],
   },
   36: {
+    type: "loading",
+    question: "Bitte haben Sie einen Augenblick Geduld.",
+    message: "Unser System sucht aus über 200 Anbietern die passenden für Ihren Pflegebedarf heraus.",
+    image_name: "loading.gif",
+    id: "wait-animation",
+  },
+  37: {
     type: "wrapper",
     question: "Nur noch ein Schritt zu Ihrem Anbietervergleich",
     next: "",
-    id: "36",
+    id: "37",
     colms: [
       {
         r1: "Frau",
@@ -1248,7 +1254,7 @@ function popFunc() {
     
     if (currentElement.type) {
       newElem += `<div id="${item}" class="inactive question">
-          <h2 class="text-center question-title">${currentElement.question}</h2>`;
+          <h2 class="text-center question-title" data-type="${currentElement.type}">${currentElement.question}</h2>`;
 
       if (currentElement.type == "regular") {
         if (currentElement.options && Array.isArray(currentElement.options)) {
@@ -1291,6 +1297,12 @@ function popFunc() {
 
           newElem += `</div></div>`;
         }
+      } else if (currentElement.type === "loading") {
+          newElem += `<div class="jumbotron form-panel col-10 mx-auto" class="loading" id="${item}"><div class="form-group">`;
+            newElem += `<h4>${currentElement.message}</h4>
+            <img alt="loading animation" src="img/${currentElement.image_name}">
+          </div></div>`;
+
       } else if (currentElement.type == "wrapper") {
         if (currentElement.colms && Array.isArray(currentElement.colms)) {
           newElem += ``;
@@ -1333,7 +1345,7 @@ Unser Service:<br>
 <p></p></div>
 <p></p></div>
 <p></p></div>
-<div class="participant-column">
+<div class="participant-column" @onkeydown="checkSubmitOnEnter(event)">
 <div class="participant-box">
 <div class="participant-row">
 <div class="participant-header"><label class="text-center size18" for="que${item}-opt${cE}">${
@@ -1341,20 +1353,20 @@ Unser Service:<br>
             }</label></div>
 </div>
 <div class="participant-row">
-<div class="participant-inline"><input type="radio" name="gender" class="female" value="Frau" id="sex-female" aria-invalid="false"></div>
+<div class="participant-inline"><input type="radio" name="gender" onchange="addFormData(event);" class="female" value="Frau" id="sex-female" aria-invalid="false"></div>
 <div class="participant-inline"><label for="sex-female" class="">Frau</label></div>
-<div class="participant-inline"><input type="radio" name="gender" value="Herr" id="sex-male" aria-invalid="false" required="" class="valid"></div>
+<div class="participant-inline"><input type="radio" name="gender" value="Herr" id="sex-male" onchange="addFormData(event);" aria-invalid="false" required="" class="valid"></div>
 <div class="participant-inline"><label for="sex-male" class="">Herr</label></div>
 </div>
 <div class="participant-row">
-<div class="participant-inline participant-col-left"><input type="text" name="firstname" value="" id="first-name" placeholder="Vorname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="given-name" autocompletetype="given-name" aria-required="true" aria-invalid="true"></div>
-<div class="participant-inline participant-col-right"><input type="text" name="lastname" value="" id="last-name" placeholder="Nachname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="family-name" autocompletetype="family-name" aria-required="true" aria-invalid="true"></div>
+<div class="participant-inline participant-col-left"><input type="text" name="firstname" value="" id="first-name" onchange="addFormData(event);" placeholder="Vorname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="given-name" autocompletetype="given-name" aria-required="true" aria-invalid="true"></div>
+<div class="participant-inline participant-col-right"><input type="text" name="lastname" value="" id="last-name" onchange="addFormData(event);" placeholder="Nachname" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="family-name" autocompletetype="family-name" aria-required="true" aria-invalid="true"></div>
 </div>
 <div class="participant-row">
-<div class="participant-single"><input type="tel" name="phone" value="" id="phone" placeholder="Telefon" class="input" required="required" data-required="true" data-remote-validate="false" x-autocompletetype="number" autocompletetype="number" aria-required="true" aria-invalid="true"></div>
+<div class="participant-single"><input type="tel" name="phone" value="" id="phone" placeholder="Telefon" class="input" onchange="addFormData(event);" required="required" data-required="true" data-remote-validate="false" x-autocompletetype="number" autocompletetype="number" aria-required="true" aria-invalid="true"></div>
 </div>
 <div class="participant-row">
-<div class="participant-single"><input type="email" name="email" value="" id="email" placeholder="E-Mail" required="required" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="email" autocompletetype="email" aria-required="true" aria-invalid="true"></div>
+<div class="participant-single"><input type="email" name="email" value="" id="email" placeholder="E-Mail" required="required" onchange="addFormData(event);" data-required="true" data-remote-validate="false" class="input" x-autocompletetype="email" autocompletetype="email" aria-required="true" aria-invalid="true"></div>
 </div>
 <div class="participant-row">
 <div class="participant-button">
@@ -1441,7 +1453,6 @@ function loadQuestion(oldHash, newHash, isBack) {
 
   } else if (newHash && oldHash) {
     if (!isBack) {
-      console.log("NOT")
       document.getElementById(oldHash).classList.remove("active");
       document.getElementById(oldHash).classList.add("moveout");
       document.getElementById(newHash).classList.remove("inactive");
@@ -1454,7 +1465,6 @@ function loadQuestion(oldHash, newHash, isBack) {
     } else {
       // If it is backward button
       if (parseInt(newHash) < parseInt(oldHash)) {
-        console.log("BACK")
         document.getElementById(newHash).classList.remove("backin");
         document.getElementById(newHash).classList.add("active");
 
@@ -1466,22 +1476,59 @@ function loadQuestion(oldHash, newHash, isBack) {
         }, 600);
       // If forward button
       } else {
-        console.log("FOR")
         document.getElementById(oldHash).classList.remove("active");
         document.getElementById(oldHash).classList.add("moveout");
         document.getElementById(newHash).classList.remove("inactive");
         document.getElementById(newHash).classList.add("active");
       }
-      
     }
-    
-
   } else if(newHash && !oldHash) {
     document.getElementById("1").classList.add("active");
     document.getElementById("1").classList.remove("inactive");
   }
 }
 
+// Check for special conditions
+function checkForSpecialConditions(hash) {
+  // Delayed redirect to final form if on loading form component
+  if (parseInt(hash) === 36) {
+    setTimeout(() => {
+      window.location.hash = "/37";
+    }, 3000);
+  }
+
+  // Disable back button if on final form
+  if (parseInt(hash) === 37) {
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+      history.pushState(null, null, document.URL);
+    });
+  }
+}
+
+// Checks if pressed key is Enter and if so, calls submitData function
+function checkSubmitOnEnter(e) {
+  if (e.keycode === 13) {
+    e.preventDefault();
+    if (verifyRequired()) {
+      submitForm();
+    }
+  }
+}
+
+// Verifies if necessary data is entered on the final contact form
+function verifyRequired() {
+  if (formData.gender && formData.firstname && formData.lastname && formData.phone && formData.email) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Posts the form data to backend
+function submitForm() {
+
+}
 /********************EVENT LISTENERS********************/
 
 // instantiate the items
@@ -1505,6 +1552,7 @@ document.onmouseleave = function() {
 window.onhashchange = function(e) {  
   let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#/") + 2);
   let newHash = e.newURL.slice(e.newURL.lastIndexOf("#/") + 2);
+  checkForSpecialConditions(newHash);
   console.log("OLD", oldHash)
   console.log("NEW", newHash)
   if (window.innerDocClick) {
@@ -1512,9 +1560,4 @@ window.onhashchange = function(e) {
   } else {
     hashChange(oldHash, newHash, true);
   }
-};
-
-window.onpopstate = function (event) { 
-// change content 
-console.log(event);
 };
