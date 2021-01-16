@@ -1425,7 +1425,7 @@ function hashChange(oldHash, newHash, back = false) {
 // Load current question in the middle of the form container
 function loadQuestion(oldHash, newHash, isBack) {
   // make oldHash falsy value if file path is given by parameter
-  if (oldHash.length > 6) {
+  if (oldHash && oldHash.length > 6) {
     oldHash = false;
   }
 
@@ -1435,17 +1435,46 @@ function loadQuestion(oldHash, newHash, isBack) {
     document.getElementById("spanInfo").classList.remove("inactive");
   }
   if (!oldHash && !newHash) {
+    document.getElementById("1").classList.add("active");
+    document.getElementById("1").classList.remove("inactive");
     return;
 
   } else if (newHash && oldHash) {
-    document.getElementById(oldHash).classList.remove("active");
-    document.getElementById(oldHash).classList.add("moveout");
-    document.getElementById(newHash).classList.remove("inactive");
-    document.getElementById(newHash).classList.add("active");
-    setTimeout(() => {
-      document.getElementById(oldHash).classList.remove("moveout");
-      document.getElementById(oldHash).classList.add("inactive");
-    }, 600);
+    if (!isBack) {
+      console.log("NOT")
+      document.getElementById(oldHash).classList.remove("active");
+      document.getElementById(oldHash).classList.add("moveout");
+      document.getElementById(newHash).classList.remove("inactive");
+      document.getElementById(newHash).classList.add("active");
+      setTimeout(() => {
+        document.getElementById(oldHash).classList.remove("moveout");
+        document.getElementById(oldHash).classList.add("backin");
+      }, 600);
+
+    } else {
+      // If it is backward button
+      if (parseInt(newHash) < parseInt(oldHash)) {
+        console.log("BACK")
+        document.getElementById(newHash).classList.remove("backin");
+        document.getElementById(newHash).classList.add("active");
+
+        document.getElementById(oldHash).classList.remove("active");
+        document.getElementById(oldHash).classList.add("backout");
+        setTimeout(() => {
+          document.getElementById(oldHash).classList.remove("backout");
+          document.getElementById(oldHash).classList.add("inactive");
+        }, 600);
+      // If forward button
+      } else {
+        console.log("FOR")
+        document.getElementById(oldHash).classList.remove("active");
+        document.getElementById(oldHash).classList.add("moveout");
+        document.getElementById(newHash).classList.remove("inactive");
+        document.getElementById(newHash).classList.add("active");
+      }
+      
+    }
+    
 
   } else if(newHash && !oldHash) {
     document.getElementById("1").classList.add("active");
@@ -1459,6 +1488,7 @@ function loadQuestion(oldHash, newHash, isBack) {
 window.onload = function () {
   popFunc();
   window.location.hash = "/1";
+  loadQuestion(null, 1, false);
 };
 
 //User's mouse is inside the page.
@@ -1482,4 +1512,9 @@ window.onhashchange = function(e) {
   } else {
     hashChange(oldHash, newHash, true);
   }
+};
+
+window.onpopstate = function (event) { 
+// change content 
+console.log(event);
 };
