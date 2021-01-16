@@ -63,6 +63,7 @@ body {
   max-width: 965px;
   margin: 0 auto;
   box-shadow: 0 0 5px #aaa;
+  position: relative;
 }
 
 .body_section {
@@ -98,6 +99,12 @@ body {
 
 /****************** FORM *********************/
 
+#form-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
 .body_section2 {
   background-color: #fff;
   border-bottom-left-radius: 5px;
@@ -105,6 +112,50 @@ body {
   font-weight: 400;
   position: relative;
   min-height: 348px;
+  overflow: hidden;
+}
+
+.question {
+  animation-name: slide-in;
+  animation-duration: .5s;
+  transform: translateX(500%);
+  
+}
+
+.inactive {
+  position: absolute !important;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.question.active {
+  animation-name: slide-in;
+  animation-duration: .6s;
+  visibility: visible;
+  transition: transform 0.6s 0s;
+  transform: translateX(0%);
+}
+
+.question.moveout {
+  animation-name: slide-out;
+  animation-duration: .6s;
+}
+
+@keyframes slide-in {
+  from{right: -100px;}
+  to{left: 0;}
+}
+
+@keyframes slide-out {
+  from{right: 0;}
+  to{left: -100px;}
 }
 
 .question-title {
@@ -113,13 +164,6 @@ body {
   bottom: 4px;
   font-family: "Open Sans";
 }
-
-.inactive {
-  /*position: absolute !important;*/
-  /*right: -500px !important;*/
-  display: none;
-}
-
 
 .size18 {
   font-size: 18px;

@@ -1247,8 +1247,8 @@ function popFunc() {
     let currentElement = queObj[item];
     
     if (currentElement.type) {
-      newElem += `<div id="${item}" class="inactive">
-        <h2 class="text-center question-title">${currentElement.question}</h2>`;
+      newElem += `<div id="${item}" class="inactive question">
+          <h2 class="text-center question-title">${currentElement.question}</h2>`;
 
       if (currentElement.type == "regular") {
         if (currentElement.options && Array.isArray(currentElement.options)) {
@@ -1257,7 +1257,7 @@ function popFunc() {
           <label class="section_items overflow-hidden" for="${currentElement.options[cE].id}">
             <img src="img/${currentElement.options[cE].image_name}" class="mx-auto d-block img-fluid">
             <div class="row">
-              <input type="radio" id="${currentElement.options[cE].id}" data-next="${currentElement.options[cE].next}" name="${currentElement.options[cE].name}" value="${currentElement.options[cE].value}"  class="d-none" onClick="setCurrentOption(event); loadNext(); addFormData(event)">
+              <input type="radio" id="${currentElement.options[cE].id}" data-next="${currentElement.options[cE].next}" name="${currentElement.options[cE].name}" value="${currentElement.options[cE].value}"  class="d-none" onClick="setCurrentOption(event); loadNext(); addFormData(event);">
               <div class="section_items_title col-md-12 text-center text-white font-weight-bold">${currentElement.options[cE].title}</div>
             </div>
           </label>`;
@@ -1432,22 +1432,30 @@ function loadQuestion(oldHash, newHash, isBack) {
 
   if (!newHash && oldHash) {
     document.getElementById(oldHash).classList.add("inactive");
+    document.getElementById(oldHash).classList.remove("active");
     document.getElementById("1").classList.remove("inactive");
+    document.getElementById("1").classList.add("active");
     return;
 
   } else if(newHash && !oldHash) {
     document.getElementById(newHash).classList.remove("inactive");
+    document.getElementById(newHash).classList.add("active");
     document.getElementById("1").classList.add("inactive");
+    document.getElementById("1").classList.remove("active");
     return;
 
   } else if (!newHash && !oldHash) {
     document.getElementById("1").classList.remove("inactive");
+    document.getElementById("1").classList.add("active");
     return;
 
   } else {
     document.getElementById("1").classList.add("inactive");
+    document.getElementById("1").classList.remove("active");
     document.getElementById(oldHash).classList.add("inactive");
+    document.getElementById(oldHash).classList.remove("active");
     document.getElementById(newHash).classList.remove("inactive");
+    document.getElementById(newHash).classList.add("active");
   }
 }
 
@@ -1458,6 +1466,7 @@ window.onload = function () {
   window.location.hash = "1";
   popFunc();
   document.getElementById("1").classList.remove("inactive");
+  document.getElementById("1").classList.add("active");
 };
 
 //User's mouse is inside the page.
