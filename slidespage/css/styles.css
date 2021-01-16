@@ -61,6 +61,7 @@ body {
 
 .form-wrapper-inner {
   max-width: 965px;
+  height: 600px;
   margin: 0 auto;
   box-shadow: 0 0 5px #aaa;
   position: relative;
@@ -111,7 +112,7 @@ body {
   border-bottom-right-radius: 5px;
   font-weight: 400;
   position: relative;
-  min-height: 348px;
+  height: 390px;
   overflow: hidden;
 }
 
@@ -686,22 +687,23 @@ img {
 /* End of Added footer CSS */
 
 /* Start of progress bar CSS */
-.progress-contain {
-    width: 80%;
-    margin: 15px auto;
-    border-radius: 16px;
-    margin-bottom: -52px;
-    height: 6px;
-    position: relative;
-    bottom: 2px;
+/*.progress-contain {
+  width: 80%;
+  margin: 15px auto;
+  border-radius: 16px;
+  height: 6px;
+  position: absolute;
+  top: 340px;
+  left: 100px;
 }
+
 .progress {
   background-color: #ff8f0d;
   height: 50%;
   width: 0;
-  min-width: 10%;
+  min-width: 2.8%;
   transition: width 0.2s linear;
-}
+}*/
 
 /* End of progress bar CSS */
 
@@ -755,6 +757,10 @@ p.serv {
     box-sizing: border-box;
 }
 
+.tt .ttt .tiptext:hover {
+  opacity: 0;
+}
+
 .tt .ttt .tiptext {
     width: 100%;
     background-color: #fbfbfb;
@@ -778,7 +784,7 @@ p.serv {
 .ttt::after {
     content: "";
     position: absolute;
-    left: calc(47% - 0.35em);
+    left: calc(45% - 0.35em);
     bottom: -10px;
     transform: rotate(180deg);
     width: 0;
@@ -1037,6 +1043,10 @@ p.serv {
   .tt .ttt .tiptext {
     font-size: 11px !important;
     height: 110px !important;
+  }
+
+  .tt .ttt .tiptext:hover {
+    opacity: 1;
   }
 
   .tt .ttt::after {

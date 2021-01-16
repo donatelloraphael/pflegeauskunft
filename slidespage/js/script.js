@@ -1235,11 +1235,8 @@ let slideR = true;
 let questionApp = document.querySelector("#questionApp");
 let spanInfo = document.querySelector("#spanInfo");
 let progressBar = document.getElementById("progress-contain");
-let previousKey;
-let previousHistory = [];
-// let previousNumber = [];
-let qLength = Object.keys(queObj).length;
 
+// let stepCounter = 1;
 let formData = {};
 let currentOption = {};
 let currentQuestion = "1";
@@ -1396,6 +1393,11 @@ function loadNext() {
   window.location.hash = "/" + nextKey;
 }
 
+// // Sets progress bar width
+// function setProgress() {
+//   $(".progress").width((stepCounter / 36 * 100) + "%");
+// }
+
 // Creates formData object to post to server
 function addFormData(e) {
   e.preventDefault();
@@ -1425,10 +1427,8 @@ function setCurrentOption(e) {
 function hashChange(oldHash, newHash, back = false) {
   let hash;
   if (back) {
-    previousHistory.pop();
     loadQuestion(oldHash, newHash, true);
   } else {
-    previousHistory.push(newHash);
     loadQuestion(oldHash, newHash, false);
   }
 }
@@ -1451,10 +1451,12 @@ function loadQuestion(oldHash, newHash, isBack) {
     return;
 
   } else if (newHash && oldHash) {
+    // If no backward/forward button press
     if (!isBack) {
       document.getElementById(oldHash).classList.remove("active");
       document.getElementById(oldHash).classList.add("moveout");
       document.getElementById(newHash).classList.remove("inactive");
+      document.getElementById(newHash).classList.remove("backin");
       document.getElementById(newHash).classList.add("active");
       setTimeout(() => {
         document.getElementById(oldHash).classList.remove("moveout");
@@ -1473,11 +1475,13 @@ function loadQuestion(oldHash, newHash, isBack) {
           document.getElementById(oldHash).classList.remove("backout");
           document.getElementById(oldHash).classList.add("inactive");
         }, 600);
+
       // If forward button
       } else {
         document.getElementById(oldHash).classList.remove("active");
         document.getElementById(oldHash).classList.add("moveout");
         document.getElementById(newHash).classList.remove("inactive");
+        document.getElementById(newHash).classList.remove("backin");
         document.getElementById(newHash).classList.add("active");
       }
     }
@@ -1506,7 +1510,7 @@ function checkForSpecialConditions(hash) {
 }
 
 // Make appendable string containing inputs from formData
-function createFormInputs() {
+function createFormInputs(formData) {
   let inputString = "";
    for (let item in formData) {
     inputString += `<input type="hidden" name="${item}" value="${formData[item]}"/>`;
@@ -1514,29 +1518,6 @@ function createFormInputs() {
    return inputString;
 }
 
-// // Checks if pressed key is Enter and if so, calls submitData function
-// function checkSubmitOnEnter(e) {
-//   if (e.keycode === 13) {
-//     e.preventDefault();
-//     if (verifyRequired()) {
-//       submitForm();
-//     }
-//   }
-// }
-
-// // Verifies if necessary data is entered on the final contact form
-// function verifyRequired() {
-//   if (formData.gender && formData.firstname && formData.lastname && formData.phone && formData.email) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-
-// // Posts the form data to backend
-// function submitForm() {
-
-// }
 /********************EVENT LISTENERS********************/
 
 // instantiate the items
@@ -1556,7 +1537,7 @@ document.onmouseleave = function() {
     window.innerDocClick = false;
 };
 
-// Detect backspace button click and call hashChange
+// Detect backspace/forward button click and call hashChange
 window.onhashchange = function(e) {  
   let oldHash = e.oldURL.slice(e.oldURL.lastIndexOf("#/") + 2);
   let newHash = e.newURL.slice(e.newURL.lastIndexOf("#/") + 2);
@@ -1571,7 +1552,7 @@ window.onhashchange = function(e) {
 
 // Append other data that is not included in the form submission by default
 $('#questionApp').submit(function(eventObj) {
-    const inputs = createFormInputs();
+    const inputs = createFormInputs(formData);
     $(this).append(inputs);
     return true;
 });
