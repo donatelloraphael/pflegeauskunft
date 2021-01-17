@@ -8,7 +8,7 @@ body {
 }
 
 *{
- outline: 1px solid red !important;
+ /*outline: 1px solid red !important;*/
 }
 /**************Nav Bar******************/
 
@@ -852,6 +852,10 @@ p.serv {
     left: calc(44% - 0.35em);
   }
 
+  .serv {
+    width: 100px;
+  }
+
   .form-wrapper {
     height: 585px;
   }
@@ -1054,6 +1058,7 @@ p.serv {
 @media(max-width: 540px) {
   p.serv {
     font-size: 11px;
+    width: auto;
   }
 
   .tt .ttt {
